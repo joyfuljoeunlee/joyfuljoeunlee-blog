@@ -16,8 +16,8 @@ module.exports = {
     {
       resolve: `gatsby-source-ghost`,
       options: {
-        apiUrl: `https://joyfuljoeunlee.dev`,
-        contentApiKey: `e1896a02f86a29dc56815cffa8`,
+        apiUrl: `https://admin.joyfuljoeunlee.dev`,
+        contentApiKey: `ca2b26d79b672c187b9acf60f7`,
       },
     },
     `gatsby-plugin-image`,
