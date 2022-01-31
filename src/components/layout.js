@@ -14,20 +14,16 @@ const Layout = ({ location, title, children }) => {
 
   if (isRootPath) {
     header = (
-      <h1 className="main-heading">
+      <h1>
         <Link to="/">{title}</Link>
       </h1>
     )
   } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
+    header = <Link to="/">{title}</Link>
   }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
+    <div data-is-root-path={isRootPath}>
       <header className="global-header flex justify-between content-center">
         {header}
         <ul className="hidden sm:grid sm:grid-flow-col sm:gap-x-4">

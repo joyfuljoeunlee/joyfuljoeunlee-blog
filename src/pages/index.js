@@ -29,11 +29,7 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li key={post.node.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
+              <article itemScope itemType="http://schema.org/Article">
                 <header>
                   <h2>
                     <Link to={post.node.slug} itemProp="url">
