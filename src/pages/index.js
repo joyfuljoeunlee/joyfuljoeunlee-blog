@@ -29,6 +29,20 @@ const BlogIndex = ({ data, location }) => {
           return (
             <li key={post.node.slug} className="col-span-3">
               <article itemScope itemType="http://schema.org/Article">
+                <div className="relative w-full h-0 mb-3 pb-[100%]">
+                  <picture>
+                    <source srcSet={post.node.feature_image} media="all" />
+                    <img
+                      src={post.node.feature_image}
+                      className="absolute w-full h-full object-fill"
+                    />
+                  </picture>
+                </div>
+                <ol className="flex flex-wrap">
+                  {post.node.tags.map(tag => {
+                    return <li className="post-tag">{tag.name}</li>
+                  })}
+                </ol>
                 <header>
                   <h2 className="post-heading">
                     <Link to={post.node.slug} itemProp="url">
@@ -72,6 +86,10 @@ export const pageQuery = graphql`
           slug
           excerpt
           published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
+          feature_image
+          tags {
+            name
+          }
         }
       }
     }
