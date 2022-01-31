@@ -23,15 +23,14 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <ol style={{ listStyle: `none` }}>
+      <ol className="grid grid-cols-12 gap-6">
         {posts.map(post => {
           const title = post.node.title || post.node.slug
-
           return (
-            <li key={post.node.slug}>
+            <li key={post.node.slug} className="col-span-3">
               <article itemScope itemType="http://schema.org/Article">
                 <header>
-                  <h2>
+                  <h2 className="post-heading">
                     <Link to={post.node.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
@@ -44,6 +43,7 @@ const BlogIndex = ({ data, location }) => {
                       __html: post.node.excerpt || post.excerpt,
                     }}
                     itemProp="description"
+                    className="post-excerpt"
                   />
                 </section>
               </article>

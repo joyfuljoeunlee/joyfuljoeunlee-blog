@@ -17,3 +17,12 @@
     @apply text-black;
   }
 }
+
+@layer components {
+  .post-heading {
+    @apply mb-2 text-2xl font-bold;
+  }
+  .post-excerpt {
+    @apply text-sm;
+  }
+}
