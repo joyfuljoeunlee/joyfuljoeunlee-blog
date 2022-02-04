@@ -40,11 +40,11 @@ const BlogIndex = ({ data, location }) => {
                 </div>
                 <ol className="flex flex-wrap">
                   {post.node.tags.map(tag => {
-                    return <li className="post-tag">{tag.name}</li>
+                    return <li className="post-list-tag">{tag.name}</li>
                   })}
                 </ol>
                 <header>
-                  <h2 className="post-heading">
+                  <h2 className="post-list-heading">
                     <Link to={post.node.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
@@ -57,7 +57,7 @@ const BlogIndex = ({ data, location }) => {
                       __html: post.node.excerpt || post.excerpt,
                     }}
                     itemProp="description"
-                    className="post-excerpt"
+                    className="post-list-excerpt"
                   />
                 </section>
               </article>

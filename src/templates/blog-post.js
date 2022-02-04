@@ -12,10 +12,13 @@ const BlogPostTemplate = ({ data, location }) => {
       <Seo title={post.title} description={post.excerpt} />
       <article itemScope itemType="http://schema.org/Article">
         <header>
-          <h1 itemProp="headline">{post.title}</h1>
+          <h1 className="post-heading" itemProp="headline">
+            {post.title}
+          </h1>
           <p>{post.published_at_pretty}</p>
         </header>
         <section
+          className="post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
