@@ -29,39 +29,37 @@ const BlogIndex = ({ data, location }) => {
             const title = post.node.title || post.node.slug
             return (
               <li key={post.node.slug} className="lg:col-span-3 sm:col-span-2">
-                <article itemScope itemType="http://schema.org/Article">
-                  <div className="relative w-full h-0 mb-3 pb-[100%]">
-                    <picture>
-                      <source srcSet={post.node.feature_image} media="all" />
-                      <img
-                        src={post.node.feature_image}
-                        className="absolute w-full h-full object-fill"
-                      />
-                    </picture>
-                  </div>
-                  <ol className="flex flex-wrap">
-                    {post.node.tags.map(tag => {
-                      return <li className="post-list-tag">{tag.name}</li>
-                    })}
-                  </ol>
-                  <header>
+                <Link to={post.node.slug} itemProp="url">
+                  <article itemScope itemType="http://schema.org/Article">
+                    <div className="relative w-full h-0 mb-3 pb-[100%]">
+                      <picture>
+                        <source srcSet={post.node.feature_image} media="all" />
+                        <img
+                          src={post.node.feature_image}
+                          className="absolute w-full h-full object-fill"
+                        />
+                      </picture>
+                    </div>
+                    <ol className="flex flex-wrap">
+                      {post.node.tags.map(tag => {
+                        return <li className="post-list-tag">{tag.name}</li>
+                      })}
+                    </ol>
                     <h2 className="post-list-heading">
-                      <Link to={post.node.slug} itemProp="url">
-                        <span itemProp="headline">{title}</span>
-                      </Link>
+                      <span itemProp="headline">{title}</span>
                     </h2>
                     <small>{post.node.published_at_pretty}</small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: post.node.excerpt || post.excerpt,
-                      }}
-                      itemProp="description"
-                      className="post-list-excerpt"
-                    />
-                  </section>
-                </article>
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: post.node.excerpt || post.excerpt,
+                        }}
+                        itemProp="description"
+                        className="post-list-excerpt"
+                      />
+                    </section>
+                  </article>
+                </Link>
               </li>
             )
           })}
