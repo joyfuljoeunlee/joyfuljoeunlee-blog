@@ -19,6 +19,13 @@
 }
 
 @layer components {
+  .header-container {
+    @apply flex justify-between items-center max-w-[112.5rem] h-28 m-auto px-14;
+  }
+
+  .post-list-container {
+    @apply max-w-[112.5rem] m-auto px-14;
+  }
   .post-list-heading {
     @apply mb-2 text-2xl font-bold;
   }

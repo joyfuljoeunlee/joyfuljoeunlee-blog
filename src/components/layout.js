@@ -24,7 +24,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div data-is-root-path={isRootPath}>
-      <header className="flex justify-between items-center h-28">
+      <header className="header-container">
         {header}
         <ul className="hidden sm:grid sm:grid-flow-col sm:gap-x-4">
           <li>
