@@ -23,7 +23,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <div className="post-list-container">
+      <div>
         <ol className="grid lg:grid-cols-12 lg:gap-6 sm:grid-cols-4 sm:gap-4 sm:gap-y-8">
           {posts.map(post => {
             const title = post.node.title || post.node.slug
