@@ -2,30 +2,21 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 
 const Layout = ({ location, title, children }) => {
-  const [isClicked, setIsClicked] = useState(false)
-
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
+
+  const [isClicked, setIsClicked] = useState(false)
 
   const overlayFullScreen = () => {
     setIsClicked(!isClicked)
   }
 
-  if (isRootPath) {
-    header = (
-      <h1>
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = <Link to="/">{title}</Link>
-  }
-
   return (
     <div data-is-root-path={isRootPath}>
       <header className="header-container">
-        {header}
+        <h1>
+          <Link to="/">{title}</Link>
+        </h1>
         <ul className="hidden sm:grid sm:grid-flow-col sm:gap-x-4">
           <li>
             <Link to="/about">About</Link>
