@@ -1,11 +1,20 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import useWindowSize from "./hooks/useWindowSize"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
   const [isClicked, setIsClicked] = useState(false)
+
+  const isMobileSize = useWindowSize().width <= 640
+
+  useEffect(() => {
+    if (isMobileSize) {
+      setIsClicked(false)
+    }
+  }, [isMobileSize])
 
   const overlayFullScreen = () => {
     setIsClicked(!isClicked)
@@ -25,28 +34,40 @@ const Layout = ({ location, title, children }) => {
             <Link to="/blog">Blog</Link>
           </li>
         </ul>
-        <button className="sm:hidden" onClick={overlayFullScreen}>
-          <span className="block w-7 h-0.5 my-1.5 bg-black" />
-          <span className="block w-7 h-0.5 my-1.5 bg-black" />
-          <span className="block w-7 h-0.5 my-1.5 bg-black" />
+        <button className="block sm:hidden" onClick={overlayFullScreen}>
+          <span
+            className={`block w-7 h-0.5 my-1.5 bg-black ${
+              isClicked ? "rotate-45 translate-y-2" : "rotate-0"
+            }`}
+          />
+          <span
+            className={`block w-7 h-0.5 my-1.5 bg-black ${
+              isClicked ? "opacity-0" : "opacity-1"
+            }`}
+          />
+          <span
+            className={`block w-7 h-0.5 my-1.5 bg-black ${
+              isClicked ? "-rotate-45 -translate-y-2" : "rotate-0"
+            }`}
+          />
         </button>
-        {isClicked && (
-          <div className="fixed top-0 left-0 w-full h-screen bg-white">
-            <ul className="grid grid-flow-row">
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-            </ul>
-            <button onClick={overlayFullScreen}>
-              <span className="block w-7 h-0.5 my-1.5 bg-black rotate-45" />
-              <span className="block w-7 h-0.5 my-1.5 bg-black -rotate-45" />
-            </button>
-          </div>
-        )}
       </header>
+      <div
+        className={`${
+          isMobileSize && isClicked
+            ? "grid items-center fixed top-0 left-0 w-full h-screen bg-white z-10"
+            : "hidden"
+        }`}
+      >
+        <ul className="grid items-center gap-4 p-14">
+          <li className="text-4xl font-bold">
+            <Link to="/about">About</Link>
+          </li>
+          <li className="text-4xl font-bold">
+            <Link to="/blog">Blog</Link>
+          </li>
+        </ul>
+      </div>
       <main className="main-container">{children}</main>
     </div>
   )
