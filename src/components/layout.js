@@ -53,10 +53,8 @@ const Layout = ({ location, title, children }) => {
         </button>
       </header>
       <div
-        className={`${
-          isMobileSize && isClicked
-            ? "grid items-center fixed top-0 left-0 w-full h-screen bg-white z-10"
-            : "hidden"
+        className={`grid items-center fixed top-0 left-0 w-full h-screen bg-white z-10 transition duration-500 ${
+          isMobileSize && isClicked ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <ul className="grid items-center gap-4 p-14">
