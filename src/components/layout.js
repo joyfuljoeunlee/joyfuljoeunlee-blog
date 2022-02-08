@@ -19,7 +19,6 @@ const Layout = ({ location, title, children }) => {
   const overlayFullScreen = () => {
     setIsClicked(!isClicked)
   }
-  console.log({ isMobileSize, isClicked })
 
   return (
     <div data-is-root-path={isRootPath}>
