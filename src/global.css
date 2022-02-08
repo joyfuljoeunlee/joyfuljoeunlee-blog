@@ -58,4 +58,8 @@
   .kg-bookmark-thumbnail {
     @apply relative grow min-w-[33%];
   }
+
+  code {
+    @apply block overflow-x-scroll;
+  }
 }
