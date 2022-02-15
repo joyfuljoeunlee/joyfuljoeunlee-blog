@@ -11,7 +11,11 @@ module.exports = {
       blue: "#3E8EF1",
       pink: "#FFD0D5",
       "pale-blue": "#A4C9D8",
+      "bookmark-border": "#7c8b9a40",
+    },
+    borderWidth: {
+      default: "1px",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 }

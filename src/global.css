@@ -22,7 +22,6 @@
   .header-container {
     @apply relative flex justify-between items-center max-w-[112.5rem] h-28 m-auto px-14 z-20;
   }
-
   .main-container {
     @apply max-w-[112.5rem] m-auto px-14;
   }
@@ -35,30 +34,53 @@
   .post-list-tag {
     @apply mr-2 mb-2 p-1 text-sm font-bold  text-white bg-black;
   }
-
   .post-heading {
     @apply text-6xl font-bold;
   }
-  .post-content h2 {
-    @apply text-3xl font-bold;
+  .post-content {
+    h2 {
+      @apply text-3xl font-bold;
+    }
+    p {
+      @apply text-lg;
+    }
+    .kg-bookmark-card {
+      @apply w-full rounded-sm;
+    }
+    .kg-bookmark-container {
+      @apply flex border-default rounded-md border-bookmark-border overflow-hidden;
+    }
+    .kg-bookmark-content {
+      @apply flex flex-col flex-grow basis-full items-start justify-start p-5;
+    }
+    .kg-bookmark-title {
+      @apply text-2xl font-semibold;
+    }
+    .kg-bookmark-description {
+      @apply max-h-[52px] mt-1 text-xl overflow-y-hidden line-clamp-2 opacity-70;
+    }
+    .kg-bookmark-metadata {
+      @apply flex items-center w-full mt-6 text-2xl font-medium;
+    }
+    .kg-bookmark-icon {
+      @apply w-5 h-5 mr-2;
+    }
+    .kg-bookmark-author {
+      @apply truncate opacity-70;
+    }
+    .kg-bookmark-publisher {
+      @apply font-normal opacity-70;
+      &:before {
+        @apply content-["•"] mx-2;
+      }
+    }
+    .kg-bookmark-thumbnail {
+      @apply relative grow min-w-[33%];
+      img {
+        @apply absolute top-0 left-0 w-full h-full object-cover;
+      }
+    }
   }
-  .post-content p {
-    @apply text-lg;
-  }
-
-  .kg-bookmark-card {
-    @apply w-full rounded-sm;
-  }
-  .kg-bookmark-container {
-    @apply flex;
-  }
-  .kg-bookmark-content {
-    @apply flex flex-col flex-grow basis-full items-start justify-start p-5;
-  }
-  .kg-bookmark-thumbnail {
-    @apply relative grow min-w-[33%];
-  }
-
   code {
     @apply block overflow-x-scroll;
   }
