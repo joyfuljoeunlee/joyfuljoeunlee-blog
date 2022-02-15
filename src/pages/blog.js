@@ -36,13 +36,18 @@ const Blog = ({ data, location }) => {
                         <source srcSet={post.node.feature_image} media="all" />
                         <img
                           src={post.node.feature_image}
+                          alt={post.node.title}
                           className="absolute w-full h-full object-fill"
                         />
                       </picture>
                     </div>
                     <ol className="flex flex-wrap">
                       {post.node.tags.map(tag => {
-                        return <li className="post-list-tag">{tag.name}</li>
+                        return (
+                          <li key={tag.id} className="post-list-tag">
+                            {tag.name}
+                          </li>
+                        )
                       })}
                     </ol>
                     <h2 className="post-list-heading">
@@ -88,6 +93,7 @@ export const pageQuery = graphql`
           published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
           feature_image
           tags {
+            id
             name
           }
         }
