@@ -8,7 +8,7 @@ const Layout = ({ location, title, children }) => {
 
   const [isClicked, setIsClicked] = useState(false)
 
-  const isMobileSize = useWindowSize().width <= 640
+  const isMobileSize = useWindowSize().width <= 834
 
   useEffect(() => {
     if (isMobileSize) {
@@ -26,7 +26,7 @@ const Layout = ({ location, title, children }) => {
         <h1>
           <Link to="/">{title}</Link>
         </h1>
-        <ul className="hidden sm:grid sm:grid-flow-col sm:gap-x-4">
+        <ul className="hidden tablet:grid tablet:grid-flow-col tablet:gap-x-4">
           <li>
             <Link to="/about">About</Link>
           </li>
@@ -34,7 +34,7 @@ const Layout = ({ location, title, children }) => {
             <Link to="/blog">Blog</Link>
           </li>
         </ul>
-        <button className="block sm:hidden" onClick={overlayFullScreen}>
+        <button className="block tablet:hidden" onClick={overlayFullScreen}>
           <span
             className={`block w-7 h-0.5 my-1.5 bg-black ${
               isClicked ? "rotate-45 translate-y-2" : "rotate-0"

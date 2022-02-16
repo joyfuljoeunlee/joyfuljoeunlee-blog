@@ -12,7 +12,7 @@ const BlogPostTemplate = ({ data, location }) => {
       <Seo title={post.title} description={post.excerpt} />
       <article itemScope itemType="http://schema.org/Article">
         <header className="grid gap-9 pt-12 pb-24 text-center">
-          <h1 className="post-heading" itemProp="headline">
+          <h1 className="text-6xl font-bold" itemProp="headline">
             {post.title}
           </h1>
           <p>{post.published_at_pretty}</p>

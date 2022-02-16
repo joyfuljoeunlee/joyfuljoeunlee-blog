@@ -20,25 +20,13 @@
 
 @layer components {
   .header-container {
-    @apply relative flex justify-between items-center max-w-[112.5rem] h-28 m-auto px-14 z-20;
+    @apply relative flex justify-between items-center max-w-[112.5rem] h-28 m-auto px-4 laptop:px-14 tablet:px-6 z-20;
   }
   .main-container {
-    @apply max-w-[112.5rem] m-auto px-14;
-  }
-  .post-list-heading {
-    @apply mb-2 text-2xl font-bold;
-  }
-  .post-list-excerpt {
-    @apply text-sm line-clamp-3;
-  }
-  .post-list-tag {
-    @apply mr-2 mb-2 p-1 text-sm font-bold  text-white bg-black;
-  }
-  .post-heading {
-    @apply text-6xl font-bold;
+    @apply max-w-[112.5rem] m-auto px-4 laptop:px-14 tablet:px-6;
   }
   .post-content {
-    @apply grid grid-cols-12 gap-6 gap-y-28;
+    @apply grid gap-6 laptop:grid-cols-12 tablet:grid-cols-4 py-14 laptop:py-24 tablet:py-20;
     > h1,
     h2,
     h3,
@@ -50,13 +38,13 @@
     ul,
     ol,
     pre {
-      @apply col-span-6 col-start-4;
+      @apply laptop:col-span-6 tablet:col-span-2 laptop:col-start-4 tablet:col-start-2;
     }
     figure {
-      @apply col-span-10 col-start-2;
+      @apply laptop:col-span-10 tablet:col-span-4 laptop:col-start-2 target:col-start-1;
     }
     h2 {
-      @apply text-3xl font-bold;
+      @apply mt-16 mb-6 text-2xl font-bold laptop:mt-24 tablet:mt-20 laptop:mb-8 tablet:mb-7 laptop:text-3xl;
     }
     p {
       @apply text-lg;
@@ -81,6 +69,9 @@
     }
     h4 {
       @apply font-bold;
+    }
+    pre {
+      @apply overflow-x-auto;
     }
     .kg-bookmark-card {
       @apply w-full rounded-sm;
@@ -118,7 +109,6 @@
         @apply absolute top-0 left-0 w-full h-full object-cover;
       }
     }
-
     .kg-image-card {
       img {
         @apply m-auto;
@@ -127,8 +117,5 @@
         @apply pt-6 px-6 text-center text-xl font-semibold opacity-50;
       }
     }
-  }
-  code {
-    @apply block overflow-x-scroll;
   }
 }
