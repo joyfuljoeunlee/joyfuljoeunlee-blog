@@ -11,7 +11,7 @@ const BlogPostTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title={post.title} description={post.excerpt} />
       <article itemScope itemType="http://schema.org/Article">
-        <header>
+        <header className="grid gap-9 pt-12 pb-24 text-center">
           <h1 className="post-heading" itemProp="headline">
             {post.title}
           </h1>
