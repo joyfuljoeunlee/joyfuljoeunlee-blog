@@ -29,7 +29,7 @@
     @apply mb-2 text-2xl font-bold;
   }
   .post-list-excerpt {
-    @apply text-sm;
+    @apply text-sm line-clamp-3;
   }
   .post-list-tag {
     @apply mr-2 mb-2 p-1 text-sm font-bold  text-white bg-black;
