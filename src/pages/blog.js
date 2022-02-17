@@ -7,6 +7,18 @@ const Blog = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allGhostPost.edges
 
+  const currentPage = ["About", "Blog"].find(element =>
+    location.pathname.includes(element.toLowerCase(), 1)
+  )
+
+  const allTags = Array.from(
+    new Set(
+      posts
+        .map(post => post.node.tags.map(tag => tag.name))
+        .reduce((prev, curr) => prev.concat(curr))
+    )
+  )
+
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -23,6 +35,21 @@ const Blog = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
+      <div className="grid justify-center items-center gap-3 m-auto">
+        <button className="text-2xl tablet:text-3xl laptop:text-4xl">
+          검색하기
+        </button>
+        <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center">
+          {currentPage}
+        </h1>
+        <ul className="flex">
+          {allTags?.map((tag, index) => (
+            <li key={index} className="m-2 p-1 border-default border-black">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
       <div>
         <ol className="grid laptop:grid-cols-12 laptop:gap-6 tablet:grid-cols-4 tablet:gap-4 tablet:gap-y-8">
           {posts.map(post => {

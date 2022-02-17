@@ -5,7 +5,19 @@ import Layout from "../components/layout"
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
-  return <Layout location={location} title={siteTitle}></Layout>
+  const currentPage = ["About", "Blog"].find(element =>
+    location.pathname.includes(element.toLowerCase(), 1)
+  )
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <div className="grid justify-center items-center gap-3 m-auto">
+        <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center">
+          {currentPage}
+        </h1>
+      </div>
+    </Layout>
+  )
 }
 
 export default About
