@@ -21,7 +21,7 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div data-is-root-path={isRootPath}>
+    <div data-is-root-path={isRootPath} className="dark:bg-black">
       <header className="header-container">
         <h1>
           <Link to="/">{title}</Link>
@@ -36,24 +36,24 @@ const Layout = ({ location, title, children }) => {
         </ul>
         <button className="block tablet:hidden" onClick={overlayFullScreen}>
           <span
-            className={`block w-7 h-0.5 my-1.5 bg-black ${
+            className={`block w-7 h-0.5 my-1.5 bg-black dark:bg-white ${
               isClicked ? "rotate-45 translate-y-2" : "rotate-0"
             }`}
           />
           <span
-            className={`block w-7 h-0.5 my-1.5 bg-black ${
+            className={`block w-7 h-0.5 my-1.5 bg-black dark:bg-white ${
               isClicked ? "opacity-0" : "opacity-1"
             }`}
           />
           <span
-            className={`block w-7 h-0.5 my-1.5 bg-black ${
+            className={`block w-7 h-0.5 my-1.5 bg-black dark:bg-white ${
               isClicked ? "-rotate-45 -translate-y-2" : "rotate-0"
             }`}
           />
         </button>
       </header>
       <div
-        className={`grid items-center fixed top-0 left-0 w-full h-screen bg-white z-10 transition duration-500 ${
+        className={`grid items-center fixed top-0 left-0 w-full h-screen bg-white dark:bg-black z-10 transition duration-500 ${
           isMobileSize && isClicked ? "translate-x-0" : "translate-x-full"
         }`}
       >
