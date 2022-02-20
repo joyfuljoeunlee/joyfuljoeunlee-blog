@@ -39,12 +39,15 @@ const Blog = ({ data, location }) => {
         <button className="text-2xl tablet:text-3xl laptop:text-4xl">
           검색하기
         </button>
-        <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center">
+        <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center dark:text-citric">
           {currentPage}
         </h1>
         <ul className="flex">
           {allTags?.map((tag, index) => (
-            <li key={index} className="m-2 p-1 border-default border-black">
+            <li
+              key={index}
+              className="m-2 p-1 border-default border-black dark:border-citric dark:text-citric"
+            >
               {tag}
             </li>
           ))}
@@ -76,7 +79,7 @@ const Blog = ({ data, location }) => {
                         return (
                           <li
                             key={tag.id}
-                            className="mr-2 mb-2 p-1 text-sm font-bold  text-white bg-black"
+                            className="mr-2 mb-2 p-1 text-sm font-bold  text-white  bg-black dark:text-black dark:bg-citric"
                           >
                             {tag.name}
                           </li>
