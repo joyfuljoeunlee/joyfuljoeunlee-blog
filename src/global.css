@@ -16,6 +16,9 @@
   div {
     @apply text-black dark:text-white;
   }
+  body {
+    @apply dark:bg-black;
+  }
 }
 
 @layer components {

@@ -22,7 +22,7 @@ const Blog = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="Home" />
+        <Seo title="Blog" />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -34,7 +34,7 @@ const Blog = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="Home" />
+      <Seo title="Blog" />
       <div className="grid justify-center items-center gap-3 m-auto">
         <button className="text-2xl tablet:text-3xl laptop:text-4xl">
           검색하기

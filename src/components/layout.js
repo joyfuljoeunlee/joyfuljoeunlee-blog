@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
+import DarkModeToggle from "./DarkModeToggle"
 import useWindowSize from "./hooks/useWindowSize"
 
 const Layout = ({ location, title, children }) => {
@@ -21,7 +22,7 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div data-is-root-path={isRootPath} className="dark:bg-black">
+    <div data-is-root-path={isRootPath}>
       <header className="header-container">
         <h1>
           <Link to="/">{title}</Link>
@@ -66,6 +67,10 @@ const Layout = ({ location, title, children }) => {
           </li>
         </ul>
       </div>
+      <div className="fixed top-1/2 left-0">
+        <DarkModeToggle />
+      </div>
+
       <main className="main-container">{children}</main>
     </div>
   )
