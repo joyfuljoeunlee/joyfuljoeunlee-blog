@@ -1,11 +1,7 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 const DarkModeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-  )
+  const [isDarkMode, setIsDarkMode] = useState(null)
   const [theme, setTheme] = useState(isDarkMode ? "다크 모드" : "라이트 모드")
 
   const switchTheme = () => {
@@ -23,11 +19,16 @@ const DarkModeToggle = () => {
   }
 
   if (typeof window === "undefined") {
-    // Never server-side render this, since we can't determine
-    // the correct initial state until we get to the client.
-    // Alternatively, use a loading placeholder here.
     return null
   }
+
+  useEffect(() => {
+    setIsDarkMode(
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+    )
+  }, [])
 
   return (
     <div
