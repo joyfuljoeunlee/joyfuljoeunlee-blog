@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 import Layout from "../components/layout"
+import ScrollProgressBar from "../components/ScrollProgressBar"
 import Seo from "../components/seo"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -10,6 +11,7 @@ const BlogPostTemplate = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title={post.title} description={post.excerpt} />
+      <ScrollProgressBar />
       <article itemScope itemType="http://schema.org/Article">
         <header className="grid gap-9 pt-12 pb-24 text-center">
           <h1 className="text-6xl font-bold" itemProp="headline">
