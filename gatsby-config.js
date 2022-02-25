@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `JOEUN LEE`,
-    description: `프론트엔드 개발자 조은이의 기술 블로그`,
+    description: `웹 프론트엔드 개발자의 소소한 블로그`,
   },
   plugins: [
     {

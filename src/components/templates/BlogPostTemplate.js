@@ -1,28 +1,30 @@
 import { graphql } from "gatsby"
 import * as React from "react"
+import { useSiteMetadata } from "../../hooks/useSiteMetadata"
 import Layout from "../Layout"
 import ScrollProgressBar from "../ScrollProgressBar"
-import Seo from "../Seo"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.ghostPost
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+
+  const { defaultTitle } = useSiteMetadata()
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title={post.title} description={post.excerpt} />
+    <Layout
+      location={location}
+      title={defaultTitle}
+      seoTitle={post.title}
+      seoDescription={post.excerpt}
+    >
       <ScrollProgressBar />
-      <article itemScope itemType="http://schema.org/Article">
+      <article>
         <header className="grid gap-9 pt-12 pb-24 text-center">
-          <h1 className="text-6xl font-bold" itemProp="headline">
-            {post.title}
-          </h1>
+          <h1 className="text-6xl font-bold">{post.title}</h1>
           <p>{post.published_at_pretty}</p>
         </header>
         <section
           className="post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
         />
       </article>
     </Layout>
@@ -33,11 +35,6 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query ($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     ghostPost(slug: { eq: $slug }) {
       id
       title

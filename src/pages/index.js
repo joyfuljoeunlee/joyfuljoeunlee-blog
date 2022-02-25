@@ -1,25 +1,13 @@
-import { graphql, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import React, { useEffect } from "react"
-import About from "./about"
+import Layout from "../components/Layout"
 
 const Index = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-
   useEffect(() => {
     navigate("/about", { replace: true })
   }, [])
 
-  return <About data={data} location={location} title={siteTitle} />
+  return <Layout location={location}></Layout>
 }
 
 export default Index
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

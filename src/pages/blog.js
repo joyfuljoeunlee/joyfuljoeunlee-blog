@@ -1,17 +1,15 @@
 import { graphql, Link } from "gatsby"
 import * as React from "react"
 import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+import Seo from "../helmets/Seo"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const Blog = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allGhostPost.edges
 
-  const currentPage = ["About", "Blog"].find(element =>
-    location.pathname.includes(element.toLowerCase(), 1)
-  )
+  const { defaultTitle } = useSiteMetadata()
 
-  const allTags = Array.from(
+  const tags = Array.from(
     new Set(
       posts
         .map(post => post.node.tags.map(tag => tag.name))
@@ -19,9 +17,13 @@ const Blog = ({ data, location }) => {
     )
   )
 
+  const currentPage = ["About", "Blog"].find(element =>
+    location.pathname.includes(element.toLowerCase(), 1)
+  )
+
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={defaultTitle}>
         <Seo title="Blog" />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -33,8 +35,7 @@ const Blog = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="Blog" />
+    <Layout location={location} title={defaultTitle} seoTitle={currentPage}>
       <div className="grid justify-center items-center gap-3 m-auto">
         <button className="text-2xl tablet:text-3xl laptop:text-4xl">
           검색하기
@@ -43,7 +44,7 @@ const Blog = ({ data, location }) => {
           {currentPage}
         </h1>
         <ul className="flex">
-          {allTags?.map((tag, index) => (
+          {tags?.map((tag, index) => (
             <li
               key={index}
               className="m-2 p-1 border-default border-black dark:border-citric dark:text-citric"
