@@ -1,8 +1,8 @@
 import { graphql } from "gatsby"
 import * as React from "react"
-import Layout from "../components/layout"
-import ScrollProgressBar from "../components/ScrollProgressBar"
-import Seo from "../components/seo"
+import Layout from "../Layout"
+import ScrollProgressBar from "../ScrollProgressBar"
+import Seo from "../Seo"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.ghostPost

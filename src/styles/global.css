@@ -23,7 +23,7 @@
 
 @layer components {
   .header-container {
-    @apply relative flex justify-between items-center max-w-[112.5rem] h-28 m-auto px-4 laptop:px-14 tablet:px-6 z-20;
+    @apply relative flex justify-between items-center max-w-[112.5rem] h-28 m-auto px-4 laptop:px-14 tablet:px-6;
   }
   .main-container {
     @apply max-w-[112.5rem] m-auto px-4 laptop:px-14 tablet:px-6;

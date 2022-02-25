@@ -25,7 +25,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets`,
       },
     },
     {
@@ -122,7 +122,7 @@ module.exports = {
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         display: `standalone`,
-        icon: `src/images/memoji.png`, // This path is relative to the root of the site.
+        icon: `src/assets/memoji.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,
