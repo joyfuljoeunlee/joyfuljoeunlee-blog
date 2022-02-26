@@ -13,6 +13,14 @@ function Header({ title }) {
     }
   }, [isMobileSize])
 
+  useEffect(() => {
+    if (isClicked) {
+      document.body.setAttribute("style", "overflow-y: hidden")
+    } else {
+      document.body.removeAttribute("style")
+    }
+  }, [isClicked])
+
   const overlayFullScreen = () => {
     setIsClicked(!isClicked)
   }
