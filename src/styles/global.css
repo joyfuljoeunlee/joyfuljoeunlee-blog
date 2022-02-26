@@ -51,6 +51,9 @@
     }
     p {
       @apply text-lg;
+      > a {
+        @apply break-words;
+      }
     }
     ol {
       @apply list-decimal;

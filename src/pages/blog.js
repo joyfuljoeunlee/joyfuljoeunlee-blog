@@ -43,7 +43,7 @@ const Blog = ({ data, location }) => {
         <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center dark:text-citric">
           {currentPage}
         </h1>
-        <ul className="flex">
+        <ul className="flex flex-wrap">
           {tags?.map((tag, index) => (
             <li
               key={index}
@@ -55,7 +55,7 @@ const Blog = ({ data, location }) => {
         </ul>
       </div>
       <div>
-        <ol className="grid gap-y-8 laptop:grid-cols-12 laptop:gap-6 tablet:grid-cols-4 tablet:gap-4 tablet:gap-y-8">
+        <ol className="grid grid-cols-1 gap-y-8 laptop:grid-cols-12 laptop:gap-6 tablet:grid-cols-4 tablet:gap-4 tablet:gap-y-8">
           {posts.map(post => {
             const title = post.node.title || post.node.slug
             return (
