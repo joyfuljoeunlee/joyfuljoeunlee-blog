@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react"
 
 const DarkThemeToggle = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(null)
-  const [theme, setTheme] = useState(isDarkTheme ? "다크 모드" : "라이트 모드")
+  const [theme, setTheme] = useState("")
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return null
-    }
-
     setIsDarkTheme(
       localStorage.theme === "dark" ||
         (!("theme" in localStorage) &&
@@ -16,15 +12,19 @@ const DarkThemeToggle = () => {
     )
   }, [])
 
+  useEffect(() => {
+    setTheme(isDarkTheme ? "다크 모드" : "라이트 모드")
+  }, [isDarkTheme])
+
   const switchTheme = () => {
     if (isDarkTheme) {
-      setTheme("라이트 모드")
       setIsDarkTheme(false)
+      setTheme("라이트 모드")
       localStorage.theme = "light"
       document.documentElement.classList.remove("dark")
     } else {
-      setTheme("다크 모드")
       setIsDarkTheme(true)
+      setTheme("다크 모드")
       localStorage.theme = "dark"
       document.documentElement.classList.add("dark")
     }
