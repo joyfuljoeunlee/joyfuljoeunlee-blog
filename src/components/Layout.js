@@ -1,7 +1,6 @@
 import React from "react"
 import DarkThemeScript from "../helmets/DarkThemeScript"
 import Seo from "../helmets/Seo"
-import DarkThemeToggle from "./DarkThemeToggle"
 import Header from "./Header"
 
 const Layout = ({ location, title, seoTitle, seoDescription, children }) => {
@@ -13,9 +12,6 @@ const Layout = ({ location, title, seoTitle, seoDescription, children }) => {
       <Seo title={seoTitle} description={seoDescription} />
       <DarkThemeScript />
       <Header title={title} />
-      <div className="fixed top-1/2 left-0">
-        <DarkThemeToggle />
-      </div>
       <main className="main-container">{children}</main>
     </div>
   )
