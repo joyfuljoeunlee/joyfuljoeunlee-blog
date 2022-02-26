@@ -29,7 +29,7 @@
     @apply max-w-[112.5rem] m-auto px-4 laptop:px-14 tablet:px-6;
   }
   .post-content {
-    @apply grid gap-6 laptop:grid-cols-12 tablet:grid-cols-4 py-14 laptop:py-24 tablet:py-20;
+    @apply grid gap-6 grid-cols-1 laptop:grid-cols-12 tablet:grid-cols-4 py-14 laptop:py-24 tablet:py-20;
     > h1,
     h2,
     h3,
