@@ -36,14 +36,14 @@ const Blog = ({ data, location }) => {
 
   return (
     <Layout location={location} title={defaultTitle} seoTitle={currentPage}>
-      <div className="grid justify-center items-center gap-3 m-auto">
+      <div className="grid justify-center items-center gap-3 m-auto pt-12 pb-24">
         <button className="text-2xl tablet:text-3xl laptop:text-4xl">
           검색하기
         </button>
         <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center dark:text-citric">
           {currentPage}
         </h1>
-        <ul className="flex flex-wrap">
+        <ul className="flex justify-center flex-wrap py-4">
           {tags?.map((tag, index) => (
             <li
               key={index}
@@ -61,7 +61,7 @@ const Blog = ({ data, location }) => {
             return (
               <li
                 key={post.node.slug}
-                className="laptop:col-span-3 tablet:col-span-2"
+                className="laptop:col-span-3 tablet:col-span-2 group"
               >
                 <Link to={post.node.slug} itemProp="url">
                   <article itemScope itemType="http://schema.org/Article">
@@ -87,7 +87,7 @@ const Blog = ({ data, location }) => {
                         )
                       })}
                     </ol>
-                    <h2 className="mb-2 text-2xl font-bold">
+                    <h2 className="mb-2 text-2xl font-bold group-hover:underline">
                       <span itemProp="headline">{title}</span>
                     </h2>
                     <small>{post.node.published_at_pretty}</small>

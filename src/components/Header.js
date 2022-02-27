@@ -34,10 +34,10 @@ function Header({ title }) {
       <div className="grid grid-flow-col items-center gap-x-4">
         <DarkThemeToggle />
         <ul className="hidden tablet:grid tablet:grid-flow-col tablet:gap-x-4">
-          <li>
+          <li className="hover:text-muted-black">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="hover:text-muted-black">
             <Link to="/blog">Blog</Link>
           </li>
         </ul>
@@ -67,11 +67,11 @@ function Header({ title }) {
           isMobileSize && isClicked ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <ul className="grid items-center gap-4 p-14">
-          <li className="text-4xl font-bold">
+        <ul className="grid items-center gap-4 px-4">
+          <li className="text-4xl font-bold hover:text-muted-black">
             <Link to="/about">About</Link>
           </li>
-          <li className="text-4xl font-bold">
+          <li className="text-4xl font-bold hover:text-muted-black">
             <Link to="/blog">Blog</Link>
           </li>
         </ul>

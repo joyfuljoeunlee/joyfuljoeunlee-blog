@@ -19,7 +19,7 @@ const BlogPostTemplate = ({ data, location }) => {
       <ScrollProgressBar />
       <article>
         <header className="grid gap-9 pt-12 pb-24 text-center">
-          <h1 className="text-6xl font-bold">{post.title}</h1>
+          <h1 className="text-6xl font-bold keep-words">{post.title}</h1>
           <p>{post.published_at_pretty}</p>
         </header>
         <section
