@@ -32,6 +32,7 @@ const DarkThemeToggle = () => {
 
   return (
     <button
+      type="button"
       className="relative w-16 h-16 border-default rounded-full dark:border-white cursor-pointer"
       onClick={switchTheme}
     >

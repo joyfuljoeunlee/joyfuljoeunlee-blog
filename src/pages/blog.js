@@ -1,13 +1,16 @@
 import { graphql, Link } from "gatsby"
-import * as React from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout"
-import Seo from "../helmets/Seo"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const Blog = ({ data, location }) => {
-  const posts = data.allGhostPost.edges
-
   const { defaultTitle } = useSiteMetadata()
+
+  const currentPage = ["About", "Blog"].find(element =>
+    location.pathname.includes(element.toLowerCase(), 1)
+  )
+
+  const posts = data.allGhostPost.edges
 
   const tags = Array.from(
     new Set(
@@ -17,46 +20,92 @@ const Blog = ({ data, location }) => {
     )
   )
 
-  const currentPage = ["About", "Blog"].find(element =>
-    location.pathname.includes(element.toLowerCase(), 1)
-  )
+  const [filteredTags, setFilteredTags] = useState({
+    selectedTags: [],
+    unselectedTags: [...tags],
+  })
+  const { selectedTags, unselectedTags } = filteredTags
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={defaultTitle}>
-        <Seo title="Blog" />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
+  const updateFiltedTags = e => {
+    const { name } = e.target
+
+    if (name === "All") {
+      setFilteredTags({
+        selectedTags: [],
+        unselectedTags: [...tags],
+      })
+    } else {
+      if (!selectedTags.includes(name)) {
+        setFilteredTags({
+          selectedTags: [...selectedTags, name],
+          unselectedTags: unselectedTags.filter(tag => tag !== name),
+        })
+      } else {
+        setFilteredTags({
+          selectedTags: selectedTags.filter(tag => tag !== name),
+          unselectedTags: [...unselectedTags, name],
+        })
+      }
+    }
   }
+
+  const filteredPosts = posts.filter(post =>
+    post.node.tags
+      .map(tag => tag.name)
+      .some(tag => {
+        if (selectedTags.length === 0) {
+          return true
+        } else {
+          return selectedTags.includes(tag)
+        }
+      })
+  )
 
   return (
     <Layout location={location} title={defaultTitle} seoTitle={currentPage}>
       <div className="grid justify-center items-center gap-3 m-auto pt-12 pb-24">
-        <button className="text-2xl tablet:text-3xl laptop:text-4xl">
+        <button
+          type="button"
+          className="text-2xl tablet:text-3xl laptop:text-4xl"
+        >
           검색하기
         </button>
         <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center dark:text-citric">
           {currentPage}
         </h1>
         <ul className="flex justify-center flex-wrap py-4">
-          {tags?.map((tag, index) => (
+          <li
+            className={`m-2 p-1 border-default border-black dark:border-citric cursor-pointer ${
+              selectedTags.length === 0
+                ? "bg-black text-white dark:bg-citric dark:text-black"
+                : "dark:text-citric"
+            }`}
+          >
+            <label className="cursor-pointer">
+              <input type="checkbox" name="All" onChange={updateFiltedTags} />
+              All
+            </label>
+          </li>
+          {tags.map((tag, index) => (
             <li
               key={index}
-              className="m-2 p-1 border-default border-black dark:border-citric dark:text-citric"
+              className={`m-2 p-1 border-default border-black dark:border-citric cursor-pointer ${
+                selectedTags.includes(tag)
+                  ? "bg-black text-white dark:bg-citric dark:text-black"
+                  : "dark:text-citric"
+              }`}
             >
-              {tag}
+              <label className="cursor-pointer">
+                <input type="checkbox" name={tag} onChange={updateFiltedTags} />
+                {tag}
+              </label>
             </li>
           ))}
         </ul>
       </div>
       <div>
         <ol className="grid grid-cols-1 gap-y-8 laptop:grid-cols-12 laptop:gap-6 tablet:grid-cols-4 tablet:gap-4 tablet:gap-y-8">
-          {posts.map(post => {
+          {filteredPosts.map(post => {
             const title = post.node.title || post.node.slug
             return (
               <li

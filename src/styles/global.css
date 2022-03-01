@@ -19,6 +19,9 @@
   body {
     @apply dark:bg-black;
   }
+  input[type="checkbox"] {
+    @apply hidden;
+  }
 }
 
 @layer components {

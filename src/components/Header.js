@@ -42,6 +42,7 @@ function Header({ title }) {
           </li>
         </ul>
         <button
+          type="button"
           className="block tablet:hidden z-20"
           onClick={overlayFullScreen}
         >
