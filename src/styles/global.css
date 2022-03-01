@@ -26,10 +26,10 @@
 
 @layer components {
   .header-container {
-    @apply relative flex justify-between items-center max-w-[112.5rem] h-28 m-auto px-4 laptop:px-14 tablet:px-6;
+    @apply fixed top-0 left-0 flex justify-between items-center w-full max-w-[112.5rem] h-28 m-auto px-4 laptop:px-14 tablet:px-6 bg-black;
   }
   .main-container {
-    @apply max-w-[112.5rem] m-auto px-4 laptop:px-14 tablet:px-6;
+    @apply max-w-[112.5rem] m-auto px-4 laptop:px-14 tablet:px-6 mt-28;
   }
   .post-content {
     @apply grid gap-6 grid-cols-1 laptop:grid-cols-12 tablet:grid-cols-4 pb-14 laptop:pb-24 tablet:pb-20;

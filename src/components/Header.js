@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import useWindowSize from "../hooks/useWindowSize"
 import DarkThemeToggle from "./DarkThemeToggle"
 
-function Header({ title }) {
+function Header({ title, isInvisible }) {
   const [isClicked, setIsClicked] = useState(false)
 
   const isMobileSize = useWindowSize().width <= 834
@@ -27,7 +27,11 @@ function Header({ title }) {
   }
 
   return (
-    <header className="header-container">
+    <header
+      className={`header-container transition-transform duration-500 ${
+        isInvisible ? "-translate-y-28" : "translate-y-0"
+      }`}
+    >
       <h1 className="z-20">
         <Link to="/">{title}</Link>
       </h1>
