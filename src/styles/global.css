@@ -128,9 +128,3 @@
     }
   }
 }
-
-@layer utilities {
-  .keep-words {
-    word-break: keep-all;
-  }
-}
