@@ -64,12 +64,6 @@ const Blog = ({ data, location }) => {
   return (
     <Layout location={location} title={defaultTitle} seoTitle={currentPage}>
       <div className="grid justify-center items-center gap-3 m-auto pt-12 pb-24">
-        <button
-          type="button"
-          className="text-2xl tablet:text-3xl laptop:text-4xl"
-        >
-          검색하기
-        </button>
         <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center dark:text-citric">
           {currentPage}
         </h1>
