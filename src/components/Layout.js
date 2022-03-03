@@ -27,12 +27,12 @@ const Layout = ({ location, title, seoTitle, seoDescription, children }) => {
   }, [])
 
   return (
-    <div>
+    <>
       <Seo title={seoTitle} description={seoDescription} />
       <DarkThemeScript />
       <Header title={title} isInvisible={isInvisible} />
       <main className="main-container">{children}</main>
-    </div>
+    </>
   )
 }
 

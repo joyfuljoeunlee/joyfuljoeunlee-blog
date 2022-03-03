@@ -68,8 +68,10 @@ function Header({ title, isInvisible }) {
         </button>
       </div>
       <div
-        className={`grid items-center fixed top-0 left-0 w-full h-screen bg-white dark:bg-black transition-transform duration-500 z-10 ${
-          isMobileSize && isClicked ? "translate-x-0" : "translate-x-full"
+        className={`grid items-center fixed top-0 left-0 w-full h-screen bg-white dark:bg-black transition-all duration-500 z-10 ${
+          isMobileSize && isClicked
+            ? "visible translate-x-0"
+            : "invisible translate-x-full"
         }`}
       >
         <ul className="grid items-center gap-4 px-4">
