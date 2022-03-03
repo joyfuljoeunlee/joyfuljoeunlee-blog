@@ -98,7 +98,7 @@ const Blog = ({ data, location }) => {
         </ul>
       </div>
       <div>
-        <ol className="grid grid-cols-1 gap-y-8 laptop:grid-cols-12 laptop:gap-6 tablet:grid-cols-4 tablet:gap-4 tablet:gap-y-8">
+        <ol className="grid grid-cols-1 gap-y-8 laptop:grid-cols-12 laptop:gap-6 tablet:grid-cols-4 tablet:gap-4">
           {filteredPosts.map(post => {
             const title = post.node.title || post.node.slug
             return (
