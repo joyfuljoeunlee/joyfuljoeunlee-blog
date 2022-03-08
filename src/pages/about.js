@@ -1,15 +1,22 @@
+import { motion } from "framer-motion"
 import * as React from "react"
 import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const AboutSection = ({ heading, children }) => {
   return (
-    <div className="border-t-default pt-8">
+    <motion.div
+      className="border-t-default pt-8"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
+    >
       {heading && <h2 className="text-2xl font-bold">{heading}</h2>}
       <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 mt-8">
         {children}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
