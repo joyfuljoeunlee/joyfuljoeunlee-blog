@@ -41,17 +41,29 @@ const About = ({ data, location }) => {
       <div className="grid grid-cols-1 gap-y-16 tablet:flex-row">
         <AboutSection heading="CONTACT">
           <div className="basis-1/4">
-            <a href="mailto:joyfuljoeunlee@gmail.com" target="_blank">
+            <a
+              href="mailto:joyfuljoeunlee@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Email
             </a>
           </div>
           <div className="basis-1/4">
-            <a href="https://github.com/joyfuljoeunlee" target="_blank">
+            <a
+              href="https://github.com/joyfuljoeunlee"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Github
             </a>
           </div>
           <div className="basis-1/4">
-            <a href="https://joyfuljoeunlee.dev/blog" target="_blank">
+            <a
+              href="https://joyfuljoeunlee.dev/blog"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Blog
             </a>
           </div>
@@ -70,7 +82,11 @@ const About = ({ data, location }) => {
               <span className="font-bold">Description</span>
               <p>
                 면도 용품 맞춤 구독 서비스를 제공하는&nbsp;
-                <a href="https://lazysociety.co.kr" target="_blank">
+                <a
+                  href="https://lazysociety.co.kr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   레이지 소사이어티
                 </a>
                 의 IT 서비스 팀에 속해 프론트엔드 개발을 담당했습니다.
