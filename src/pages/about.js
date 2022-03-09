@@ -6,18 +6,16 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata"
 const AboutSection = ({ heading, children }) => {
   return (
     <motion.div
-      className="about-section pt-8"
+      className="about-section pt-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
     >
       {heading && (
-        <h2 className="text-3xl font-bold bg-black text-white dark:bg-citric dark:text-black">
-          {heading}
-        </h2>
+        <h2 className="pt-8 text-4xl font-bold border-t-default">{heading}</h2>
       )}
-      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 mt-8">
+      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-16 mt-8">
         {children}
       </div>
     </motion.div>
@@ -38,16 +36,12 @@ const About = ({ data, location }) => {
           {currentPage}
         </h1>
       </div>
-      <h2 className="mb-8 text-2xl">
-        안녕하세요, 사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
-        이조은입니다.
-        <br />
-        좋은 UI/UX와 웹 성능에 높은 가치를 두고, 공급자가 아닌 소비자 관점에서
-        생각하는 태도를 가지고 웹을 구현합니다.
-        <br />
-        다양한 직군의 동료와 같은 목표를 위해 함께 일하며 성장하기를 꿈꿉니다.
-        <br />
-        ESFP 성향을 가지고 있고, 최근에는 요가, 등산, 요리 등의 취미로
+      <h2 className="text-3xl">
+        안녕하세요,사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
+        이조은입니다. <b>좋은 UI/UX와 웹 성능</b>에 높은 가치를 두고, 공급자가
+        아닌 <b>소비자 관점</b>에서 생각하는 태도를 가지고 웹을 구현합니다.
+        다양한 직군의 동료와 같은 목표를 위해 <b>함께 일하며 성장하기</b>를
+        꿈꿉니다. ESFP 성향을 가지고 있고, 최근에는 요가, 등산, 요리 등의 취미로
         스트레스를 해소합니다.
       </h2>
       <div className="grid grid-cols-1 gap-y-16 tablet:flex-row">
@@ -83,7 +77,7 @@ const About = ({ data, location }) => {
 
         <AboutSection heading="WORK EXPERIENCE">
           <div className="basis-1/2">
-            <h3 className="text-xl">레이지 소사이어티</h3>
+            <h3 className="text-2xl font-bold">레이지 소사이어티</h3>
             <div className="mt-2">
               <span className="block">프론트엔드 개발자</span>
               <span className="block">Feb 2021 - Oct 2021</span>
@@ -91,7 +85,7 @@ const About = ({ data, location }) => {
           </div>
           <div className="basis-1/2">
             <div>
-              <span className="font-bold">Description</span>
+              <span className="block mb-2 text-xl font-bold">Description</span>
               <p>
                 면도 용품 맞춤 구독 서비스를 제공하는&nbsp;
                 <a
@@ -103,12 +97,13 @@ const About = ({ data, location }) => {
                 </a>
                 의 IT 서비스 팀에 속해 프론트엔드 개발을 담당했습니다.
                 <br />
-                <br />
                 회사 내부 운영상의 문제로 중도에 그만두게 되었습니다.
               </p>
             </div>
             <div className="mt-2">
-              <span className="font-bold">What did I do</span>
+              <span className="block mb-2 text-xl font-bold">
+                What did I do
+              </span>
               <ul>
                 <li>
                   신규 기능 개발 (면도날 교체 주기 알림, 어드민에서 구독 항목
@@ -125,7 +120,7 @@ const About = ({ data, location }) => {
               </ul>
             </div>
             <div className="mt-2">
-              <span className="font-bold">Tech Stack</span>
+              <span className="block mb-2 text-xl font-bold">Tech Stack</span>
               <p>
                 Next.js, React, SWR, Redux, Styled Components, Vercel,
                 WordPress, AWS
@@ -136,14 +131,14 @@ const About = ({ data, location }) => {
 
         <AboutSection heading="PROJECTS">
           <div className="basis-1/2">
-            <h3 className="text-xl">개인 블로그</h3>
+            <h3 className="text-2xl font-bold">개인 블로그</h3>
             <div className="mt-2">
               <span className="block">Jan 2022 - Present</span>
             </div>
           </div>
           <div className="basis-1/2">
             <div>
-              <span className="font-bold">Description</span>
+              <span className="block mb-2 text-xl font-bold">Description</span>
               <p>
                 <a
                   href="https://framer.com/projects/Blog--7RdcUSh2HdxYt96sBzDs"
@@ -159,14 +154,14 @@ const About = ({ data, location }) => {
               </p>
             </div>
             <div className="mt-2">
-              <span className="font-bold">Tech Stack</span>
+              <span className="block mb-2 text-xl font-bold">Tech Stack</span>
               <p>
                 Gatsby, React, GraphQL, Tailwind CSS, Framer Motion, Netlify,
                 Ghost, Framer
               </p>
             </div>
             <div className="mt-2">
-              <span className="font-bold">Articles</span>
+              <span className="block mb-2 text-xl font-bold">Articles</span>
               <ul>
                 <li>
                   <a
@@ -190,14 +185,14 @@ const About = ({ data, location }) => {
             </div>
           </div>
           <div className="basis-1/2">
-            <h3 className="text-xl">웹사이트 성능 개선</h3>
+            <h3 className="text-2xl font-bold">웹사이트 성능 개선</h3>
             <div className="mt-2">
               <span className="block">Sep 2021</span>
             </div>
           </div>
           <div className="basis-1/2">
             <div>
-              <span className="font-bold">Description</span>
+              <span className="block mb-2 text-xl font-bold">Description</span>
               <p>
                 약 3주 동안 회사 웹사이트 성능 개선 프로젝트를 단독으로
                 진행했습니다. LCP 20% 감소 및 TTI 10% 감소의 성과를
@@ -205,7 +200,7 @@ const About = ({ data, location }) => {
               </p>
             </div>
             <div className="mt-2">
-              <span className="font-bold">Articles</span>
+              <span className="block mb-2 text-xl font-bold">Articles</span>
               <ul>
                 <li>
                   <a
@@ -232,7 +227,7 @@ const About = ({ data, location }) => {
 
         <AboutSection heading="SKILLS">
           <div className="basis-1/2">
-            <h3 className="text-xl">Frontend</h3>
+            <h3 className="text-2xl font-bold">Frontend</h3>
           </div>
           <div className="basis-1/2">
             <ul>
@@ -254,7 +249,7 @@ const About = ({ data, location }) => {
             </ul>
           </div>
           <div className="basis-1/2">
-            <h3 className="text-xl">UI/UX</h3>
+            <h3 className="text-2xl font-bold">UI/UX</h3>
           </div>
           <div className="basis-1/2">
             <ul>
@@ -264,7 +259,7 @@ const About = ({ data, location }) => {
             </ul>
           </div>
           <div className="basis-1/2">
-            <h3 className="text-xl">Data</h3>
+            <h3 className="text-2xl font-bold">Data</h3>
           </div>
           <div className="basis-1/2">
             <ul>
@@ -275,7 +270,7 @@ const About = ({ data, location }) => {
             </ul>
           </div>
           <div className="basis-1/2">
-            <h3 className="text-xl">Collaboration</h3>
+            <h3 className="text-2xl font-bold">Collaboration</h3>
           </div>
           <div className="basis-1/2">
             <ul>
@@ -293,7 +288,7 @@ const About = ({ data, location }) => {
 
         <AboutSection heading="EDUCATION">
           <div className="basis-1/2">
-            <h3 className="text-xl">위코드</h3>
+            <h3 className="text-2xl font-bold">위코드</h3>
             <div className="mt-2">
               <span className="block">프론트엔드 개발자 과정 11기</span>
               <span className="block">Jul 2020 - Oct 2020</span>
@@ -306,7 +301,7 @@ const About = ({ data, location }) => {
             </p>
           </div>
           <div className="basis-1/2">
-            <h3 className="text-xl">전남대학교</h3>
+            <h3 className="text-2xl font-bold">전남대학교</h3>
             <div className="mt-2">
               <span className="block">경영학 학사</span>
               <span className="block">Mar 2014 - Feb 2019</span>
@@ -322,7 +317,7 @@ const About = ({ data, location }) => {
 
         <AboutSection heading="Awards">
           <div className="basis-1/2">
-            <h3 className="text-xl">
+            <h3 className="text-2xl font-bold">
               2017 월드프렌즈 ICT 봉사단 성과 보고대회 우수 활동팀, 최우수상
             </h3>
             <div className="mt-2">

@@ -33,8 +33,7 @@
   }
   .about-section {
     p,
-    li,
-    span {
+    li {
       @apply text-base;
     }
     a {
