@@ -6,13 +6,17 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata"
 const AboutSection = ({ heading, children }) => {
   return (
     <motion.div
-      className="border-t-default pt-8"
+      className="about-section pt-8"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
     >
-      {heading && <h2 className="text-2xl font-bold">{heading}</h2>}
+      {heading && (
+        <h2 className="text-3xl font-bold bg-black text-white dark:bg-citric dark:text-black">
+          {heading}
+        </h2>
+      )}
       <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 mt-8">
         {children}
       </div>
@@ -105,25 +109,19 @@ const About = ({ data, location }) => {
             </div>
             <div className="mt-2">
               <span className="font-bold">What did I do</span>
-              <ul className="list-disc">
-                <li className="list-inside">
+              <ul>
+                <li>
                   신규 기능 개발 (면도날 교체 주기 알림, 어드민에서 구독 항목
                   조회 및 변경, 브라우저 호환성 배너, 기프트 코드)
                 </li>
-                <li className="list-inside">기존 코드 유지 보수</li>
-                <li className="list-inside">
-                  UI/UX 개선 (홈, 제품 상세, 구독, 결제 화면)
-                </li>
-                <li className="list-inside">웹사이트 성능 개선</li>
-                <li className="list-inside">
-                  클라이언트 에러 대응 (런타임 에러, 웹 호환성 이슈)
-                </li>
-                <li className="list-inside">
-                  SWR 도입하여 클라이언트 상태 관리 개선
-                </li>
-                <li className="list-inside">프론트엔드 코드 컨벤션 정리</li>
-                <li className="list-inside">Google Tag Manager 관리</li>
-                <li className="list-inside">Google Merchant Center 관리</li>
+                <li>기존 코드 유지 보수</li>
+                <li>UI/UX 개선 (홈, 제품 상세, 구독, 결제 화면)</li>
+                <li>웹사이트 성능 개선</li>
+                <li>클라이언트 에러 대응 (런타임 에러, 웹 호환성 이슈)</li>
+                <li>SWR 도입하여 클라이언트 상태 관리 개선</li>
+                <li>프론트엔드 코드 컨벤션 정리</li>
+                <li>Google Tag Manager 관리</li>
+                <li>Google Merchant Center 관리</li>
               </ul>
             </div>
             <div className="mt-2">
@@ -169,8 +167,8 @@ const About = ({ data, location }) => {
             </div>
             <div className="mt-2">
               <span className="font-bold">Articles</span>
-              <ul className="list-disc">
-                <li className="list-inside">
+              <ul>
+                <li>
                   <a
                     href="https://joyfuljoeunlee.dev/blog/ghost-gatsby-netlify-1"
                     target="_blank"
@@ -179,7 +177,7 @@ const About = ({ data, location }) => {
                     Ghost + Gatsby + Netlify 블로그 만들기 (1)
                   </a>
                 </li>
-                <li className="list-inside">
+                <li>
                   <a
                     href="https://joyfuljoeunlee.dev/blog/ghost-gatsby-netlify-2"
                     target="_blank"
@@ -208,8 +206,8 @@ const About = ({ data, location }) => {
             </div>
             <div className="mt-2">
               <span className="font-bold">Articles</span>
-              <ul className="list-disc">
-                <li className="list-inside">
+              <ul>
+                <li>
                   <a
                     href="https://joyfuljoeunlee.dev/blog/web-performance-optimization-1"
                     target="_blank"
@@ -218,7 +216,7 @@ const About = ({ data, location }) => {
                     웹 성능 측정과 최적화 (1)
                   </a>
                 </li>
-                <li className="list-inside">
+                <li>
                   <a
                     href="https://joyfuljoeunlee.dev/blog/web-performance-optimization-2"
                     target="_blank"
@@ -237,19 +235,19 @@ const About = ({ data, location }) => {
             <h3 className="text-xl">Frontend</h3>
           </div>
           <div className="basis-1/2">
-            <ul className="list-disc">
-              <li className="list-inside">
+            <ul>
+              <li>
                 주로 React를 사용하여 웹을 만듭니다. Hook 사용에 익숙하고,
                 반복되는 로직을 적절히 모듈화하여 사용할 수 있습니다.
               </li>
-              <li className="list-inside">
+              <li>
                 JavaScript 엔진의 동작 원리를 이해하고, 최신 JavaScript 문법에
                 익숙합니다.
               </li>
-              <li className="list-inside">
+              <li>
                 웹 성능을 최적화할 수 있는 다양한 방법을 활용할 수 있습니다.
               </li>
-              <li className="list-inside">
+              <li>
                 웹 접근성을 위해 시맨틱 마크업을 준수합니다. 또한 웹 호환성을
                 습관적으로 확인합니다.
               </li>
@@ -259,8 +257,8 @@ const About = ({ data, location }) => {
             <h3 className="text-xl">UI/UX</h3>
           </div>
           <div className="basis-1/2">
-            <ul className="list-disc">
-              <li className="list-inside">
+            <ul>
+              <li>
                 Framer 등의 디자인 도구로 간단한 프로토타입을 만들 수 있습니다.
               </li>
             </ul>
@@ -269,8 +267,8 @@ const About = ({ data, location }) => {
             <h3 className="text-xl">Data</h3>
           </div>
           <div className="basis-1/2">
-            <ul className="list-disc">
-              <li className="list-inside">
+            <ul>
+              <li>
                 SQL을 이용하여 데이터를 조회하고, Redash를 통해 데이터 시각화를
                 할 수 있습니다.
               </li>
@@ -280,12 +278,12 @@ const About = ({ data, location }) => {
             <h3 className="text-xl">Collaboration</h3>
           </div>
           <div className="basis-1/2">
-            <ul className="list-disc">
-              <li className="list-inside">
+            <ul>
+              <li>
                 Git을 활용한 워크 플로우에 익숙하며, 직관적인 커밋 히스토리를
                 작성합니다.
               </li>
-              <li className="list-inside">
+              <li>
                 능숙하지 않은 분야가 있을지라도 업무에 필요하다면 적극적으로
                 탐색하여 활용합니다.
               </li>

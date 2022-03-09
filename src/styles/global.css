@@ -31,6 +31,25 @@
   .main-container {
     @apply max-w-[112.5rem] m-auto px-4 laptop:px-14 tablet:px-6 my-28;
   }
+  .about-section {
+    p,
+    li,
+    span {
+      @apply text-base;
+    }
+    a {
+      @apply underline decoration-muted-black dark:decoration-citric hover:decoration-2;
+    }
+    ul {
+      @apply list-outside;
+      li {
+        @apply flex before:content-["•"] before:px-2 before:text-muted-black;
+        &:before {
+          @apply dark:text-citric;
+        }
+      }
+    }
+  }
   .post-content {
     @apply grid gap-6 grid-cols-1 laptop:grid-cols-12 tablet:grid-cols-4 pb-14 laptop:pb-24 tablet:pb-20;
     > h1,
@@ -81,6 +100,9 @@
     }
     pre {
       @apply overflow-x-auto;
+    }
+    a {
+      @apply underline decoration-muted-black dark:decoration-citric hover:decoration-2;
     }
     .kg-bookmark-card {
       @apply w-full rounded-sm;
