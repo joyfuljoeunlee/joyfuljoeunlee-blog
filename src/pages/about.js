@@ -15,7 +15,7 @@ const AboutSection = ({ heading, children }) => {
       {heading && (
         <h2 className="pt-8 text-4xl font-bold border-t-default">{heading}</h2>
       )}
-      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-16 mt-8">
+      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-16 mt-16">
         {children}
       </div>
     </motion.div>
