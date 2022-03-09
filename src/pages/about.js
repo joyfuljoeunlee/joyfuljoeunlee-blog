@@ -37,18 +37,17 @@ const About = ({ data, location }) => {
       <h2 className="mb-8 text-2xl">
         안녕하세요, 사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
         이조은입니다.
+        <br />
+        좋은 UI/UX와 웹 성능에 높은 가치를 두고, 공급자가 아닌 소비자 관점에서
+        생각하는 태도를 가지고 웹을 구현합니다.
+        <br />
+        다양한 직군의 동료와 같은 목표를 위해 함께 일하며 성장하기를 꿈꿉니다.
+        <br />
+        ESFP 성향을 가지고 있고, 최근에는 요가, 등산, 요리 등의 취미로
+        스트레스를 해소합니다.
       </h2>
       <div className="grid grid-cols-1 gap-y-16 tablet:flex-row">
         <AboutSection heading="CONTACT">
-          <div className="basis-1/4">
-            <a
-              href="mailto:joyfuljoeunlee@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Email
-            </a>
-          </div>
           <div className="basis-1/4">
             <a
               href="https://github.com/joyfuljoeunlee"
@@ -65,6 +64,15 @@ const About = ({ data, location }) => {
               rel="noopener noreferrer"
             >
               Blog
+            </a>
+          </div>
+          <div className="basis-1/4">
+            <a
+              href="mailto:joyfuljoeunlee@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Email
             </a>
           </div>
         </AboutSection>
@@ -91,6 +99,7 @@ const About = ({ data, location }) => {
                 </a>
                 의 IT 서비스 팀에 속해 프론트엔드 개발을 담당했습니다.
                 <br />
+                <br />
                 회사 내부 운영상의 문제로 중도에 그만두게 되었습니다.
               </p>
             </div>
@@ -98,19 +107,31 @@ const About = ({ data, location }) => {
               <span className="font-bold">What did I do</span>
               <ul className="list-disc">
                 <li className="list-inside">
-                  신규 기능 개발 및 기존 코드 유지보수
+                  신규 기능 개발 (면도날 교체 주기 알림, 어드민에서 구독 항목
+                  조회 및 변경, 브라우저 호환성 배너, 기프트 코드)
                 </li>
-                <li className="list-inside">UI 컴포넌트 개발</li>
+                <li className="list-inside">기존 코드 유지 보수</li>
+                <li className="list-inside">
+                  UI/UX 개선 (홈, 제품 상세, 구독, 결제 화면)
+                </li>
                 <li className="list-inside">웹사이트 성능 개선</li>
-                <li className="list-inside">상태 관리 개선</li>
-                <li className="list-inside">프론트엔드 코드 컨벤션 개선</li>
-                <li className="list-inside">오류 대응</li>
-                <li className="list-inside">GTM 이벤트 태깅</li>
+                <li className="list-inside">
+                  클라이언트 에러 대응 (런타임 에러, 웹 호환성 이슈)
+                </li>
+                <li className="list-inside">
+                  SWR 도입하여 클라이언트 상태 관리 개선
+                </li>
+                <li className="list-inside">프론트엔드 코드 컨벤션 정리</li>
+                <li className="list-inside">Google Tag Manager 관리</li>
+                <li className="list-inside">Google Merchant Center 관리</li>
               </ul>
             </div>
             <div className="mt-2">
               <span className="font-bold">Tech Stack</span>
-              <p>Next.js, SWR, Redux, styled-components</p>
+              <p>
+                Next.js, React, SWR, Redux, Styled Components, Vercel,
+                WordPress, AWS
+              </p>
             </div>
           </div>
         </AboutSection>
@@ -125,11 +146,49 @@ const About = ({ data, location }) => {
           <div className="basis-1/2">
             <div>
               <span className="font-bold">Description</span>
-              <p>블로그를 직접 만들었습니다. 지속적으로 개선하고 있습니다.</p>
+              <p>
+                <a
+                  href="https://framer.com/projects/Blog--7RdcUSh2HdxYt96sBzDs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Framer로 간단하게 구현한 UI/UX 프로토타입
+                </a>
+                을 포함해 거의 모든 기능(다크 테마, 태그 필터 등)을 직접
+                구현했습니다. 개인 프로젝트이지만 추후 변경 이력 추적을 위하여
+                직관적인 커밋 히스토리를 유지하려고 노력합니다. 지속해서
+                개선하고 있습니다.
+              </p>
             </div>
             <div className="mt-2">
               <span className="font-bold">Tech Stack</span>
-              <p>Gatsby, Tailwind CSS</p>
+              <p>
+                Gatsby, React, GraphQL, Tailwind CSS, Framer Motion, Netlify,
+                Ghost, Framer
+              </p>
+            </div>
+            <div className="mt-2">
+              <span className="font-bold">Articles</span>
+              <ul className="list-disc">
+                <li className="list-inside">
+                  <a
+                    href="https://joyfuljoeunlee.dev/blog/ghost-gatsby-netlify-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ghost + Gatsby + Netlify 블로그 만들기 (1)
+                  </a>
+                </li>
+                <li className="list-inside">
+                  <a
+                    href="https://joyfuljoeunlee.dev/blog/ghost-gatsby-netlify-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ghost + Gatsby + Netlify 블로그 만들기 (2)
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="basis-1/2">
@@ -141,7 +200,34 @@ const About = ({ data, location }) => {
           <div className="basis-1/2">
             <div>
               <span className="font-bold">Description</span>
-              <p>회사 웹사이트 성능 개선 프로젝트를 단독으로 진행했습니다.</p>
+              <p>
+                약 3주 동안 회사 웹사이트 성능 개선 프로젝트를 단독으로
+                진행했습니다. LCP 20% 감소 및 TTI 10% 감소의 성과를
+                만들었습니다.
+              </p>
+            </div>
+            <div className="mt-2">
+              <span className="font-bold">Articles</span>
+              <ul className="list-disc">
+                <li className="list-inside">
+                  <a
+                    href="https://joyfuljoeunlee.dev/blog/web-performance-optimization-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    웹 성능 측정과 최적화 (1)
+                  </a>
+                </li>
+                <li className="list-inside">
+                  <a
+                    href="https://joyfuljoeunlee.dev/blog/web-performance-optimization-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    웹 성능 측정과 최적화 (2)
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </AboutSection>
@@ -153,10 +239,19 @@ const About = ({ data, location }) => {
           <div className="basis-1/2">
             <ul className="list-disc">
               <li className="list-inside">
-                주로 React를 사용하여 앱을 만듭니다.
+                주로 React를 사용하여 웹을 만듭니다. Hook 사용에 익숙하고,
+                반복되는 로직을 적절히 모듈화하여 사용할 수 있습니다.
+              </li>
+              <li className="list-inside">
+                JavaScript 엔진의 동작 원리를 이해하고, 최신 JavaScript 문법에
+                익숙합니다.
               </li>
               <li className="list-inside">
                 웹 성능을 최적화할 수 있는 다양한 방법을 활용할 수 있습니다.
+              </li>
+              <li className="list-inside">
+                웹 접근성을 위해 시맨틱 마크업을 준수합니다. 또한 웹 호환성을
+                습관적으로 확인합니다.
               </li>
             </ul>
           </div>
@@ -166,7 +261,33 @@ const About = ({ data, location }) => {
           <div className="basis-1/2">
             <ul className="list-disc">
               <li className="list-inside">
-                Framer 등의 디자인 도구로 프로토타입을 만들 수 있습니다.
+                Framer 등의 디자인 도구로 간단한 프로토타입을 만들 수 있습니다.
+              </li>
+            </ul>
+          </div>
+          <div className="basis-1/2">
+            <h3 className="text-xl">Data</h3>
+          </div>
+          <div className="basis-1/2">
+            <ul className="list-disc">
+              <li className="list-inside">
+                SQL을 이용하여 데이터를 조회하고, Redash를 통해 데이터 시각화를
+                할 수 있습니다.
+              </li>
+            </ul>
+          </div>
+          <div className="basis-1/2">
+            <h3 className="text-xl">Collaboration</h3>
+          </div>
+          <div className="basis-1/2">
+            <ul className="list-disc">
+              <li className="list-inside">
+                Git을 활용한 워크 플로우에 익숙하며, 직관적인 커밋 히스토리를
+                작성합니다.
+              </li>
+              <li className="list-inside">
+                능숙하지 않은 분야가 있을지라도 업무에 필요하다면 적극적으로
+                탐색하여 활용합니다.
               </li>
             </ul>
           </div>
@@ -183,7 +304,7 @@ const About = ({ data, location }) => {
           <div className="basis-1/2">
             <p>
               이 교육 과정을 통해 2주 동안 진행되는 클론 프로젝트 2개, 4주 동안
-              진행되는 인턴십을 경험할 수 있었습니다.
+              진행되는 인턴십을 경험했습니다.
             </p>
           </div>
           <div className="basis-1/2">
@@ -204,7 +325,7 @@ const About = ({ data, location }) => {
         <AboutSection heading="Awards">
           <div className="basis-1/2">
             <h3 className="text-xl">
-              2017 월드프렌즈 ICT 봉사단 성과보고대회 우수 활동팀, 최우수상
+              2017 월드프렌즈 ICT 봉사단 성과 보고대회 우수 활동팀, 최우수상
             </h3>
             <div className="mt-2">
               <span className="block">
@@ -217,8 +338,8 @@ const About = ({ data, location }) => {
           <div className="basis-1/2">
             <p>
               저를 포함한 4명이 한 팀을 이루어 말레이시아에서 약 2달 동안 IT
-              봉사활동을 했습니다. 파견된 지역에 필요한 모바일 어플리케이션을
-              직접 기획, 개발, 배포할 수 있었습니다.
+              봉사활동을 했습니다. 파견된 지역에 필요한 안드로이드 앱을 직접
+              기획, 개발, 배포할 수 있었습니다.
             </p>
           </div>
         </AboutSection>
