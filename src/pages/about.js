@@ -7,8 +7,8 @@ const AboutSection = ({ heading, children }) => {
   return (
     <motion.div
       className="about-section pt-16"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
     >
@@ -36,14 +36,20 @@ const About = ({ data, location }) => {
           {currentPage}
         </h1>
       </div>
-      <h2 className="text-3xl">
+      <motion.h2
+        className="text-3xl"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         안녕하세요,사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
         이조은입니다. <b>좋은 UI/UX와 웹 성능</b>에 높은 가치를 두고, 공급자가
         아닌 <b>소비자 관점</b>에서 생각하는 태도를 가지고 웹을 구현합니다.
         다양한 직군의 동료와 같은 목표를 위해 <b>함께 일하며 성장하기</b>를
         꿈꿉니다. ESFP 성향을 가지고 있고, 최근에는 요가, 등산, 요리 등의 취미로
         스트레스를 해소합니다.
-      </h2>
+      </motion.h2>
       <div className="grid grid-cols-1 gap-y-16 tablet:flex-row">
         <AboutSection heading="CONTACT">
           <div className="basis-1/4">
