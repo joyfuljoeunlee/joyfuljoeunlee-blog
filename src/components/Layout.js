@@ -26,6 +26,16 @@ const Layout = ({ location, title, seoTitle, seoDescription, children }) => {
     }
   }, [])
 
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0)
+    }
+    window.addEventListener("beforeunload", handleBeforeUnload)
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload)
+    }
+  }, [])
+
   return (
     <>
       <Seo title={seoTitle} description={seoDescription} />
