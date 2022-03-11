@@ -43,12 +43,12 @@ const About = ({ data, location }) => {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        안녕하세요,사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
+        안녕하세요, 사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
         이조은입니다. <b>좋은 UI/UX와 웹 성능</b>에 높은 가치를 두고, 공급자가
         아닌 <b>소비자 관점</b>에서 생각하는 태도를 가지고 웹을 구현합니다.
         다양한 직군의 동료와 같은 목표를 위해 <b>함께 일하며 성장하기</b>를
-        꿈꿉니다. ESFP 성향을 가지고 있고, 최근에는 요가, 등산, 요리 등의 취미로
-        스트레스를 해소합니다.
+        꿈꿉니다. ESFP 유형에 속하며, 밝고 긍정적인 성격을 가지고 있습니다.
+        요가, 등산, 요리 등의 취미로 스트레스를 해소합니다.
       </motion.h2>
       <div className="grid grid-cols-1 gap-y-16 tablet:flex-row">
         <AboutSection heading="CONTACT">
@@ -246,6 +246,9 @@ const About = ({ data, location }) => {
                 익숙합니다.
               </li>
               <li>
+                SPA, SSG, SSR의 차이점을 이해하고 적절히 사용할 수 있습니다.
+              </li>
+              <li>
                 웹 성능을 최적화할 수 있는 다양한 방법을 활용할 수 있습니다.
               </li>
               <li>
@@ -272,6 +275,10 @@ const About = ({ data, location }) => {
               <li>
                 SQL을 이용하여 데이터를 조회하고, Redash를 통해 데이터 시각화를
                 할 수 있습니다.
+              </li>
+              <li>
+                구글 태그 매니저를 활용하여 상황에 알맞은 이벤트를 태깅할 수
+                있습니다.
               </li>
             </ul>
           </div>
