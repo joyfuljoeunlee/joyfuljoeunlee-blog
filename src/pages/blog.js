@@ -98,7 +98,7 @@ const Blog = ({ data, location }) => {
         </ul>
       </div>
       <div>
-        <ol className="grid grid-cols-1 gap-y-8 laptop:grid-cols-12 laptop:gap-6 tablet:grid-cols-4 tablet:gap-4">
+        <ol className="grid grid-cols-1 gap-y-16">
           {filteredPosts.map(post => {
             const title = post.node.title || post.node.slug
             return (
@@ -108,16 +108,6 @@ const Blog = ({ data, location }) => {
               >
                 <Link to={post.node.slug} itemProp="url">
                   <article itemScope itemType="http://schema.org/Article">
-                    <div className="relative w-full h-0 mb-3 pb-[100%]">
-                      <picture>
-                        <source srcSet={post.node.feature_image} media="all" />
-                        <img
-                          src={post.node.feature_image}
-                          alt={post.node.title}
-                          className="absolute w-full h-full object-fill"
-                        />
-                      </picture>
-                    </div>
                     <ol className="flex flex-wrap">
                       {post.node.tags.map(tag => {
                         return (
