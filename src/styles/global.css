@@ -51,22 +51,6 @@
   }
   .post-content {
     @apply grid grid-cols-1 gap-y-6;
-    > h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    hr,
-    ul,
-    ol,
-    pre {
-      @apply laptop:col-span-6 tablet:col-span-2 laptop:col-start-4 tablet:col-start-2;
-    }
-    figure {
-      @apply laptop:col-span-10 tablet:col-span-4 laptop:col-start-2 target:col-start-1;
-    }
     h2 {
       @apply mt-16 mb-6 text-2xl font-bold laptop:mt-24 tablet:mt-20 laptop:mb-8 tablet:mb-7 laptop:text-3xl;
     }
