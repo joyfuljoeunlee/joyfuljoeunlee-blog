@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion"
 import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import useWindowSize from "../hooks/useWindowSize"
@@ -67,22 +68,26 @@ const Header = ({ title, isInvisible }) => {
           />
         </button>
       </div>
-      <div
-        className={`grid items-center fixed top-0 left-0 w-full h-screen bg-white dark:bg-black transition-all duration-500 z-10 ${
-          isMobileSize && isClicked
-            ? "visible translate-x-0"
-            : "invisible translate-x-full"
-        }`}
-      >
-        <ul className="grid items-center gap-4 px-4">
-          <li className="text-4xl font-bold hover:text-muted-black">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="text-4xl font-bold hover:text-muted-black">
-            <Link to="/blog">Blog</Link>
-          </li>
-        </ul>
-      </div>
+      <AnimatePresence>
+        {isMobileSize && isClicked && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3 }}
+            className="grid items-center fixed top-0 left-0 w-full h-screen bg-white dark:bg-black z-10"
+          >
+            <ul className="grid items-center gap-4 px-4">
+              <li className="text-4xl font-bold hover:text-muted-black">
+                <Link to="/about">About</Link>
+              </li>
+              <li className="text-4xl font-bold hover:text-muted-black">
+                <Link to="/blog">Blog</Link>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
