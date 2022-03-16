@@ -1,24 +1,18 @@
-import { motion } from "framer-motion"
 import * as React from "react"
 import Layout from "../components/Layout"
+import UpwardsInViewContainer from "../components/UpwardsInViewContainer"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 const AboutSection = ({ heading, children }) => {
   return (
-    <motion.div
-      className="about-section pt-16"
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1 }}
-    >
+    <UpwardsInViewContainer className="about-section pt-16">
       {heading && (
         <h2 className="pt-8 text-4xl font-bold border-t-default">{heading}</h2>
       )}
       <div className="grid grid-cols-1 tablet:grid-cols-2 gap-16 mt-16">
         {children}
       </div>
-    </motion.div>
+    </UpwardsInViewContainer>
   )
 }
 
@@ -36,20 +30,16 @@ const About = ({ data, location }) => {
           {currentPage}
         </h1>
       </div>
-      <motion.h2
-        className="text-3xl"
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        안녕하세요, 사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
-        이조은입니다. <b>좋은 UI/UX와 웹 성능</b>에 높은 가치를 두고, 공급자가
-        아닌 <b>소비자 관점</b>에서 생각하는 태도를 가지고 웹을 구현합니다.
-        다양한 직군의 동료와 같은 목표를 위해 <b>함께 일하며 성장하기</b>를
-        꿈꿉니다. ESFP 유형에 속하며, 밝고 긍정적인 성격을 가지고 있습니다.
-        요가, 등산, 요리 등의 취미로 스트레스를 해소합니다.
-      </motion.h2>
+      <UpwardsInViewContainer>
+        <h2 className="text-3xl">
+          안녕하세요, 사용자에게 좋은 경험을 주는 웹을 만드는 프론트엔드 개발자
+          이조은입니다. <b>좋은 UI/UX와 웹 성능</b>에 높은 가치를 두고, 공급자가
+          아닌 <b>소비자 관점</b>에서 생각하는 태도를 가지고 웹을 구현합니다.
+          다양한 직군의 동료와 같은 목표를 위해 <b>함께 일하며 성장하기</b>를
+          꿈꿉니다. ESFP 유형에 속하며, 밝고 긍정적인 성격을 가지고 있습니다.
+          요가, 등산, 요리 등의 취미로 스트레스를 해소합니다.
+        </h2>
+      </UpwardsInViewContainer>
       <div className="grid grid-cols-1 gap-y-16 tablet:flex-row">
         <AboutSection heading="CONTACT">
           <div className="basis-1/4">
