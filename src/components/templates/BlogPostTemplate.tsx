@@ -4,7 +4,11 @@ import useSiteMetadata from "../../hooks/useSiteMetadata"
 import Layout from "../Layout"
 import ScrollProgressBar from "../ScrollProgressBar"
 
-const BlogPostTemplate = ({ location }) => {
+interface Props {
+  location: Location
+}
+
+const BlogPostTemplate = ({ location }: Props) => {
   const { defaultTitle } = useSiteMetadata()
 
   return (

@@ -4,8 +4,13 @@ import React, { useEffect, useState } from "react"
 import useWindowSize from "../hooks/useWindowSize"
 import DarkThemeToggle from "./DarkThemeToggle"
 
-const Header = ({ title, isInvisible }) => {
-  const [isClicked, setIsClicked] = useState(false)
+interface Props {
+  title: string | undefined
+  isInvisible: boolean
+}
+
+const Header: React.FC<Props> = ({ title, isInvisible }: Props) => {
+  const [isClicked, setIsClicked] = useState<boolean>(false)
 
   const isMobileSize = useWindowSize().width <= 834
 

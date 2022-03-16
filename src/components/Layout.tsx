@@ -4,10 +4,24 @@ import Seo from "../helmets/Seo"
 import useScroll from "../hooks/useScroll"
 import Header from "./Header"
 
-const Layout = ({ location, title, seoTitle, seoDescription, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  const [isInvisible, setIsInvisible] = useState(false)
+interface Props {
+  location: Location
+  title?: string | undefined
+  seoTitle?: string | undefined
+  seoDescription?: string
+  children?: React.ReactNode
+}
+
+const Layout: React.FC<Props> = ({
+  location,
+  title,
+  seoTitle,
+  seoDescription,
+  children,
+}: Props) => {
+  // const rootPath = `${__PATH_PREFIX__}/`
+  // const isRootPath = location.pathname === rootPath
+  const [isInvisible, setIsInvisible] = useState<boolean>(false)
   let { y: lastScrollPos } = useScroll()
 
   useEffect(() => {

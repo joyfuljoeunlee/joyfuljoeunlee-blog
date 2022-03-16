@@ -3,7 +3,35 @@ import React, { useState } from "react"
 import Layout from "../components/Layout"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
-const Blog = ({ data, location }) => {
+type DataProps = {
+  allGhostPost: {
+    edges: {
+      node: {
+        id: string
+        title: string
+        slug: string
+        excerpt: string
+        published_at_pretty: string
+        tags: {
+          id: string
+          name: string
+        }[]
+      }
+    }[]
+  }
+}
+
+interface Props {
+  data: DataProps
+  location: Location
+}
+
+interface FilteredTags {
+  selectedTags: string[]
+  unselectedTags: string[]
+}
+
+const Blog = ({ data, location }: Props) => {
   const { defaultTitle } = useSiteMetadata()
 
   const currentPage = ["About", "Blog"].find(element =>
@@ -20,13 +48,13 @@ const Blog = ({ data, location }) => {
     )
   )
 
-  const [filteredTags, setFilteredTags] = useState({
+  const [filteredTags, setFilteredTags] = useState<FilteredTags>({
     selectedTags: [],
     unselectedTags: [...tags],
   })
   const { selectedTags, unselectedTags } = filteredTags
 
-  const updateFiltedTags = e => {
+  const updateFiltedTags = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name } = e.target
 
     if (name === "All") {
@@ -127,7 +155,7 @@ const Blog = ({ data, location }) => {
                     <section>
                       <p
                         dangerouslySetInnerHTML={{
-                          __html: post.node.excerpt || post.excerpt,
+                          __html: post.node.excerpt,
                         }}
                         itemProp="description"
                         className="text-sm line-clamp-3"
@@ -148,11 +176,6 @@ export default Blog
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allGhostPost(sort: { fields: [published_at], order: DESC }) {
       edges {
         node {
@@ -161,7 +184,6 @@ export const pageQuery = graphql`
           slug
           excerpt
           published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
-          feature_image
           tags {
             id
             name

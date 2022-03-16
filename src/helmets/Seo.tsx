@@ -9,7 +9,12 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
-const Seo = ({ title, description }) => {
+interface Props {
+  title?: string | undefined
+  description?: string
+}
+
+const Seo = ({ title, description }: Props) => {
   const { defaultTitle, defaultDescription } = useSiteMetadata()
 
   const seo = {
