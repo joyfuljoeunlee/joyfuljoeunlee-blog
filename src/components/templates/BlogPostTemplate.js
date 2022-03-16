@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import * as React from "react"
-import { useSiteMetadata } from "../../hooks/useSiteMetadata"
+import useSiteMetadata from "../../hooks/useSiteMetadata"
 import Layout from "../Layout"
 import ScrollProgressBar from "../ScrollProgressBar"
 

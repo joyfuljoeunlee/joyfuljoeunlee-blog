@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import useWindowSize from "../hooks/useWindowSize"
 import DarkThemeToggle from "./DarkThemeToggle"
 
-function Header({ title, isInvisible }) {
+const Header = ({ title, isInvisible }) => {
   const [isClicked, setIsClicked] = useState(false)
 
   const isMobileSize = useWindowSize().width <= 834

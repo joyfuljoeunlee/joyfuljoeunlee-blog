@@ -1,6 +1,6 @@
 import * as React from "react"
 import Layout from "../components/Layout"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 const NotFoundPage = ({ location }) => {
   const { defaultTitle } = useSiteMetadata()

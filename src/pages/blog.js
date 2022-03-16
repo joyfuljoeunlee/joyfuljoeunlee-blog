@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby"
 import React, { useState } from "react"
 import Layout from "../components/Layout"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 const Blog = ({ data, location }) => {
   const { defaultTitle } = useSiteMetadata()

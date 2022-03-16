@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import React from "react"
 
-const UpwardsInViewContainer = ({ children, ...rest }) => {
+const UpwardsContainer = ({ children, ...rest }) => {
   return (
     <motion.div
       {...rest}
@@ -14,4 +14,5 @@ const UpwardsInViewContainer = ({ children, ...rest }) => {
     </motion.div>
   )
 }
-export default UpwardsInViewContainer
+
+export default UpwardsContainer
