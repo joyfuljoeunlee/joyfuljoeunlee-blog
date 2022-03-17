@@ -2,7 +2,11 @@ import { navigate } from "gatsby"
 import React, { useEffect } from "react"
 import Layout from "../components/Layout"
 
-const Index = ({ data, location }) => {
+interface Props {
+  location: Location
+}
+
+const Index = ({ location }: Props) => {
   useEffect(() => {
     navigate("/about", { replace: true })
   }, [])

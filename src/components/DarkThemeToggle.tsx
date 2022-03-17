@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 const DarkThemeToggle = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(null)
-  const [theme, setTheme] = useState("")
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean | null>(null)
 
   useEffect(() => {
     setIsDarkTheme(
@@ -12,19 +11,13 @@ const DarkThemeToggle = () => {
     )
   }, [])
 
-  useEffect(() => {
-    setTheme(isDarkTheme ? "DARK" : "LIGHT")
-  }, [isDarkTheme])
-
   const switchTheme = () => {
     if (isDarkTheme) {
       setIsDarkTheme(false)
-      setTheme("LIGHT")
       localStorage.theme = "light"
       document.documentElement.classList.remove("dark")
     } else {
       setIsDarkTheme(true)
-      setTheme("DARK")
       localStorage.theme = "dark"
       document.documentElement.classList.add("dark")
     }
@@ -37,7 +30,7 @@ const DarkThemeToggle = () => {
       onClick={switchTheme}
     >
       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        {theme}
+        {isDarkTheme ? "DARK" : "LIGHT"}
       </span>
     </button>
   )

@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allGhostPost.edges
   // Load templates
   const postTemplate = path.resolve(
-    `./src/components/templates/BlogPostTemplate.js`
+    `./src/components/templates/BlogPostTemplate.tsx`
   )
 
   // Create post pages

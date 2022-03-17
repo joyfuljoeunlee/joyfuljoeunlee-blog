@@ -2,7 +2,11 @@ import * as React from "react"
 import Layout from "../components/Layout"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
-const NotFoundPage = ({ location }) => {
+interface Props {
+  location: Location
+}
+
+const NotFoundPage = ({ location }: Props) => {
   const { defaultTitle } = useSiteMetadata()
 
   return (

@@ -3,7 +3,16 @@ import Layout from "../components/Layout"
 import UpwardsContainer from "../components/motions/UpwardsContainer"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
-const AboutSection = ({ heading, children }) => {
+interface AboutSectionProps {
+  heading: string
+  children: React.ReactNode
+}
+
+interface AboutProps {
+  location: Location
+}
+
+const AboutSection = ({ heading, children }: AboutSectionProps) => {
   return (
     <UpwardsContainer className="about-section pt-16">
       {heading && (
@@ -16,7 +25,7 @@ const AboutSection = ({ heading, children }) => {
   )
 }
 
-const About = ({ data, location }) => {
+const About = ({ location }: AboutProps) => {
   const currentPage = ["About", "Blog"].find(element =>
     location.pathname.includes(element.toLowerCase(), 1)
   )

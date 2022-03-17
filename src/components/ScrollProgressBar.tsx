@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 const ScrollProgressBar = () => {
-  const [scrolled, setScrolled] = useState(0)
+  const [scrolled, setScrolled] = useState<number>(0)
 
   const trackVerticalScroll = () => {
     let winScroll =

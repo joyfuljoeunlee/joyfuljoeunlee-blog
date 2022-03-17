@@ -1,7 +1,12 @@
 import { motion } from "framer-motion"
 import React from "react"
 
-const UpwardsContainer = ({ children, ...rest }) => {
+interface Props {
+  children?: React.ReactNode
+  className?: string
+}
+
+const UpwardsContainer = ({ children, ...rest }: Props) => {
   return (
     <motion.div
       {...rest}
