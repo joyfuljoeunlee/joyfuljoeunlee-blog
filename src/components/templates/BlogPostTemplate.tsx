@@ -1,51 +1,62 @@
-import { graphql, StaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import useSiteMetadata from "../../hooks/useSiteMetadata"
 import Layout from "../Layout"
 import ScrollProgressBar from "../ScrollProgressBar"
 
+type DataProps = {
+  ghostPost: {
+    id: string
+    title: string
+    excerpt: string
+    published_at_pretty: string
+    html: any
+  }
+}
+
 interface Props {
+  data: DataProps
   location: Location
 }
 
-const BlogPostTemplate = ({ location }: Props) => {
+const BlogPostTemplate = ({ data, location }: Props) => {
+  const post = data.ghostPost
+
   const { defaultTitle } = useSiteMetadata()
 
   return (
-    <StaticQuery
-      query={graphql`
-        query {
-          ghostPost {
-            title
-            slug
-            excerpt
-            published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
-            html
-          }
-        }
-      `}
-      render={data => (
-        <Layout
-          location={location}
-          title={defaultTitle}
-          seoTitle={data.ghostPost.title}
-          seoDescription={data.ghostPost.excerpt}
-        >
-          <ScrollProgressBar />
-          <article>
-            <header className="grid gap-9 pt-12 pb-24 text-center">
-              <h1 className="text-6xl font-bold">{data.ghostPost.title}</h1>
-              <p>{data.ghostPost.published_at_pretty}</p>
-            </header>
-            <section
-              className="post-content"
-              dangerouslySetInnerHTML={{ __html: data.ghostPost.html }}
-            />
-          </article>
-        </Layout>
-      )}
-    />
+    <Layout
+      location={location}
+      title={defaultTitle}
+      seoTitle={post.title}
+      seoDescription={post.excerpt}
+    >
+      <ScrollProgressBar />
+      <article>
+        <header className="grid gap-9 pt-12 pb-24 text-center">
+          <h1 className="text-6xl font-bold">{post.title}</h1>
+          <p>{post.published_at_pretty}</p>
+        </header>
+        <section
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </article>
+    </Layout>
   )
 }
 
 export default BlogPostTemplate
+
+export const pageQuery = graphql`
+  query ($slug: String!) {
+    ghostPost(slug: { eq: $slug }) {
+      id
+      title
+      slug
+      excerpt
+      published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
+      html
+    }
+  }
+`
