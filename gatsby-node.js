@@ -39,3 +39,22 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+// Setup Import Alias
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+  const output = getConfig().output || {}
+
+  actions.setWebpackConfig({
+    output,
+    resolve: {
+      alias: {
+        components: path.resolve(__dirname, "src/components"),
+        assets: path.resolve(__dirname, "src/assets"),
+        hooks: path.resolve(__dirname, "src/hooks"),
+        helmets: path.resolve(__dirname, "src/helmets"),
+        pages: path.resolve(__dirname, "src/pages"),
+        styles: path.resolve(__dirname, "src/styles"),
+      },
+    },
+  })
+}

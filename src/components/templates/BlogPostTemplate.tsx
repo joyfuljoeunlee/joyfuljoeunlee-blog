@@ -1,8 +1,8 @@
 import { graphql } from "gatsby"
 import React from "react"
-import useSiteMetadata from "../../hooks/useSiteMetadata"
-import Layout from "../Layout"
-import ScrollProgressBar from "../ScrollProgressBar"
+import useSiteMetadata from "hooks/useSiteMetadata"
+import Layout from "components/Layout"
+import ScrollProgressBar from "components/ScrollProgressBar"
 
 type DataProps = {
   ghostPost: {

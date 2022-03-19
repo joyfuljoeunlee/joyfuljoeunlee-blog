@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
-import useWindowSize from "../hooks/useWindowSize"
-import DarkThemeToggle from "./DarkThemeToggle"
+import useWindowSize from "hooks/useWindowSize"
+import DarkThemeToggle from "components/DarkThemeToggle"
 
 interface Props {
   title: string | undefined

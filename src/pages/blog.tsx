@@ -1,7 +1,7 @@
 import { graphql, Link } from "gatsby"
 import React, { useState } from "react"
-import Layout from "../components/Layout"
-import useSiteMetadata from "../hooks/useSiteMetadata"
+import Layout from "components/Layout"
+import useSiteMetadata from "hooks/useSiteMetadata"
 
 type DataProps = {
   allGhostPost: {

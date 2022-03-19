@@ -1,7 +1,7 @@
-import * as React from "react"
-import Layout from "../components/Layout"
-import UpwardsContainer from "../components/motions/UpwardsContainer"
-import useSiteMetadata from "../hooks/useSiteMetadata"
+import React from "react"
+import Layout from "components/Layout"
+import UpwardsContainer from "components/motions/UpwardsContainer"
+import useSiteMetadata from "hooks/useSiteMetadata"
 
 interface AboutSectionProps {
   heading: string

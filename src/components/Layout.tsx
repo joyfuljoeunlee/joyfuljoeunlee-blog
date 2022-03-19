@@ -1,8 +1,8 @@
+import Header from "components/Header"
+import DarkThemeScript from "helmets/DarkThemeScript"
+import Seo from "helmets/Seo"
+import useScroll from "hooks/useScroll"
 import React, { useEffect, useState } from "react"
-import DarkThemeScript from "../helmets/DarkThemeScript"
-import Seo from "../helmets/Seo"
-import useScroll from "../hooks/useScroll"
-import Header from "./Header"
 
 interface Props {
   location: Location
