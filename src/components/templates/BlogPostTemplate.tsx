@@ -11,9 +11,9 @@ type DataProps = {
     excerpt: string
     published_at_pretty: string
     html: any
-    childHtmlRehype: {
-      html: any
-    }
+    // childHtmlRehype: {
+    //   html: any
+    // }
   }
 }
 
@@ -42,7 +42,7 @@ const BlogPostTemplate = ({ data, location }: Props) => {
         </header>
         <section
           className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.childHtmlRehype.html }}
+          dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </article>
     </Layout>
@@ -60,9 +60,6 @@ export const pageQuery = graphql`
       excerpt
       published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
       html
-      childHtmlRehype {
-        html
-      }
     }
   }
 `
