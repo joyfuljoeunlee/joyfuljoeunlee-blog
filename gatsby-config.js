@@ -3,6 +3,7 @@ module.exports = {
     title: `JOEUN LEE`,
     description: `웹 프론트엔드 개발자의 소소한 블로그`,
   },
+
   plugins: [
     {
       resolve: `gatsby-plugin-typescript`,
@@ -29,6 +30,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-transformer-rehype`,
+      options: {
+        filter: node =>
+          node.internal.type === `GhostPost` ||
+          node.internal.type === `GhostPage`,
+        plugins: [
+          {
+            resolve: `gatsby-rehype-prismjs`,
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -44,7 +58,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
