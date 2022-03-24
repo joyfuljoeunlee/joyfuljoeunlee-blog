@@ -2,7 +2,8 @@ import Layout from "components/Layout"
 import ScrollProgressBar from "components/ScrollProgressBar"
 import { graphql } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
-import React from "react"
+import Prism from "prismjs"
+import React, { useEffect } from "react"
 
 type DataProps = {
   ghostPost: {
@@ -23,6 +24,10 @@ const BlogPostTemplate = ({ data, location }: Props) => {
   const post = data.ghostPost
 
   const { defaultTitle } = useSiteMetadata()
+
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [])
 
   return (
     <Layout
