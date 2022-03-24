@@ -2,7 +2,8 @@ import Layout from "components/Layout"
 import ScrollProgressBar from "components/ScrollProgressBar"
 import { graphql } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
-import React from "react"
+import Prism from "prismjs"
+import React, { useEffect } from "react"
 
 type DataProps = {
   ghostPost: {
@@ -11,9 +12,6 @@ type DataProps = {
     excerpt: string
     published_at_pretty: string
     html: any
-    childHtmlRehype: {
-      html: any
-    }
   }
 }
 
@@ -26,6 +24,10 @@ const BlogPostTemplate = ({ data, location }: Props) => {
   const post = data.ghostPost
 
   const { defaultTitle } = useSiteMetadata()
+
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [])
 
   return (
     <Layout
@@ -42,7 +44,7 @@ const BlogPostTemplate = ({ data, location }: Props) => {
         </header>
         <section
           className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.childHtmlRehype.html }}
+          dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </article>
     </Layout>
@@ -60,9 +62,6 @@ export const pageQuery = graphql`
       excerpt
       published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
       html
-      childHtmlRehype {
-        html
-      }
     }
   }
 `
