@@ -11,9 +11,6 @@ type DataProps = {
     excerpt: string
     published_at_pretty: string
     html: any
-    // childHtmlRehype: {
-    //   html: any
-    // }
   }
 }
 
