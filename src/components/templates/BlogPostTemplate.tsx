@@ -25,6 +25,12 @@ const BlogPostTemplate = ({ data, location }: Props) => {
 
   const { defaultTitle } = useSiteMetadata()
 
+  const tocLists: HTMLHeadingElement[] = Object.values(
+    new DOMParser()
+      .parseFromString(post.html, "text/html")
+      .getElementsByTagName("h2")
+  )
+
   useEffect(() => {
     Prism.highlightAll()
   }, [])
@@ -37,16 +43,26 @@ const BlogPostTemplate = ({ data, location }: Props) => {
       seoDescription={post.excerpt}
     >
       <ScrollProgressBar />
-      <article>
-        <header className="grid gap-9 pt-12 pb-24 text-center">
-          <h1 className="text-6xl font-bold">{post.title}</h1>
-          <p>{post.published_at_pretty}</p>
-        </header>
-        <section
-          className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </article>
+      <div className="flex">
+        <article>
+          <header className="grid gap-9 pt-12 pb-24 text-center">
+            <h1 className="text-6xl font-bold">{post.title}</h1>
+            <p>{post.published_at_pretty}</p>
+          </header>
+          <section
+            className="post-content"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </article>
+        <div>
+          <ul>
+            {tocLists.map((list, index) => {
+              const tocList = list.innerHTML
+              return <li key={index}>{tocList}</li>
+            })}
+          </ul>
+        </div>
+      </div>
     </Layout>
   )
 }
