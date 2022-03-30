@@ -3,7 +3,7 @@ import ScrollProgressBar from "components/ScrollProgressBar"
 import { graphql } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
 import Prism from "prismjs"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 type DataProps = {
   ghostPost: {
@@ -21,15 +21,20 @@ interface Props {
 }
 
 const BlogPostTemplate = ({ data, location }: Props) => {
+  const [tocLists, setTocLists] = useState<HTMLHeadingElement[] | null>(null)
   const post = data.ghostPost
 
   const { defaultTitle } = useSiteMetadata()
 
-  const tocLists: HTMLHeadingElement[] = Object.values(
-    new DOMParser()
-      .parseFromString(post.html, "text/html")
-      .getElementsByTagName("h2")
-  )
+  useEffect(() => {
+    setTocLists(
+      Object.values(
+        new DOMParser()
+          .parseFromString(post.html, "text/html")
+          .getElementsByTagName("h2")
+      )
+    )
+  }, [])
 
   useEffect(() => {
     Prism.highlightAll()
@@ -56,7 +61,7 @@ const BlogPostTemplate = ({ data, location }: Props) => {
         </article>
         <div>
           <ul>
-            {tocLists.map((list, index) => {
+            {tocLists?.map((list, index) => {
               const tocList = list.innerHTML
               return <li key={index}>{tocList}</li>
             })}
