@@ -1,9 +1,10 @@
 import Layout from "components/Layout"
 import ScrollProgressBar from "components/ScrollProgressBar"
+import TocLists from "components/TocLists"
 import { graphql } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
 import Prism from "prismjs"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 type DataProps = {
   ghostPost: {
@@ -21,9 +22,20 @@ interface Props {
 }
 
 const BlogPostTemplate = ({ data, location }: Props) => {
+  const [tocLists, setTocLists] = useState<HTMLHeadingElement[] | null>(null)
   const post = data.ghostPost
 
   const { defaultTitle } = useSiteMetadata()
+
+  useEffect(() => {
+    setTocLists(
+      Object.values(
+        new DOMParser()
+          .parseFromString(post.html, "text/html")
+          .getElementsByTagName("h2")
+      )
+    )
+  }, [])
 
   useEffect(() => {
     Prism.highlightAll()
@@ -37,16 +49,26 @@ const BlogPostTemplate = ({ data, location }: Props) => {
       seoDescription={post.excerpt}
     >
       <ScrollProgressBar />
-      <article>
-        <header className="grid gap-9 pt-12 pb-24 text-center">
-          <h1 className="text-6xl font-bold">{post.title}</h1>
-          <p>{post.published_at_pretty}</p>
-        </header>
-        <section
-          className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </article>
+      <div className="flex gap-10">
+        <div>
+          <article>
+            <header className="grid gap-9 pt-12 pb-24 text-center">
+              <h1 className="text-6xl font-bold">{post.title}</h1>
+              <p>{post.published_at_pretty}</p>
+            </header>
+            <div className="block laptop:hidden">
+              <TocLists tocLists={tocLists} />
+            </div>
+            <section
+              className="post-content"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </article>
+        </div>
+        <div className="hidden laptop:block laptop:sticky laptop:top-28 laptop:self-start laptop:min-w-fit">
+          <TocLists tocLists={tocLists} />
+        </div>
+      </div>
     </Layout>
   )
 }
