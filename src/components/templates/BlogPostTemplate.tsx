@@ -1,5 +1,6 @@
 import Layout from "components/Layout"
 import ScrollProgressBar from "components/ScrollProgressBar"
+import TocLists from "components/TocLists"
 import { graphql } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
 import Prism from "prismjs"
@@ -40,8 +41,6 @@ const BlogPostTemplate = ({ data, location }: Props) => {
     Prism.highlightAll()
   }, [])
 
-  console.log(tocLists)
-
   return (
     <Layout
       location={location}
@@ -58,23 +57,7 @@ const BlogPostTemplate = ({ data, location }: Props) => {
               <p>{post.published_at_pretty}</p>
             </header>
             <div className="block laptop:hidden">
-              <p className="mt-16 mb-6 text-2xl font-bold laptop:mt-24 tablet:mt-20 laptop:mb-8 tablet:mb-7 laptop:text-3xl">
-                목차
-              </p>
-              <ul>
-                {tocLists?.map((list, index) => {
-                  const tocList = list.innerHTML
-                  const id = list.id
-                  return (
-                    <li
-                      key={index}
-                      className="text-lg text-pink dark:text-citric"
-                    >
-                      <a href={`#${id}`}>{tocList}</a>
-                    </li>
-                  )
-                })}
-              </ul>
+              <TocLists tocLists={tocLists} />
             </div>
             <section
               className="post-content"
@@ -83,20 +66,7 @@ const BlogPostTemplate = ({ data, location }: Props) => {
           </article>
         </div>
         <div className="hidden laptop:block laptop:sticky laptop:top-28 laptop:self-start laptop:min-w-fit">
-          <p className="mt-16 mb-6 text-2xl font-bold laptop:mt-24 tablet:mt-20 laptop:mb-8 tablet:mb-7 laptop:text-3xl">
-            목차
-          </p>
-          <ul>
-            {tocLists?.map((list, index) => {
-              const tocList = list.innerHTML
-              const id = list.id
-              return (
-                <li key={index} className="text-lg text-pink dark:text-citric">
-                  <a href={`#${id}`}>{tocList}</a>
-                </li>
-              )
-            })}
-          </ul>
+          <TocLists tocLists={tocLists} />
         </div>
       </div>
     </Layout>
