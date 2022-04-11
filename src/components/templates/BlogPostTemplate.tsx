@@ -48,22 +48,46 @@ const BlogPostTemplate = ({ data, location }: Props) => {
       seoDescription={post.excerpt}
     >
       <ScrollProgressBar />
-      <div className="flex">
-        <article>
-          <header className="grid gap-9 pt-12 pb-24 text-center">
-            <h1 className="text-6xl font-bold">{post.title}</h1>
-            <p>{post.published_at_pretty}</p>
-          </header>
-          <section
-            className="post-content"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-        </article>
+      <div className="flex gap-10">
         <div>
+          <article>
+            <header className="grid gap-9 pt-12 pb-24 text-center">
+              <h1 className="text-6xl font-bold">{post.title}</h1>
+              <p>{post.published_at_pretty}</p>
+            </header>
+            <div className="block laptop:hidden">
+              <p className="mt-16 mb-6 text-2xl font-bold laptop:mt-24 tablet:mt-20 laptop:mb-8 tablet:mb-7 laptop:text-3xl">
+                목차
+              </p>
+              <ul>
+                {tocLists?.map((list, index) => {
+                  const tocList = list.innerHTML
+                  return (
+                    <li key={index} className="text-lg">
+                      {tocList}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+            <section
+              className="post-content"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </article>
+        </div>
+        <div className="hidden laptop:block laptop:sticky laptop:top-28 laptop:self-start laptop:min-w-fit">
+          <p className="mt-16 mb-6 text-2xl font-bold laptop:mt-24 tablet:mt-20 laptop:mb-8 tablet:mb-7 laptop:text-3xl">
+            목차
+          </p>
           <ul>
             {tocLists?.map((list, index) => {
               const tocList = list.innerHTML
-              return <li key={index}>{tocList}</li>
+              return (
+                <li key={index} className="text-lg">
+                  {tocList}
+                </li>
+              )
             })}
           </ul>
         </div>

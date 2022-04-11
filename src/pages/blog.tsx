@@ -1,7 +1,7 @@
-import { graphql, Link } from "gatsby"
-import React, { useState } from "react"
 import Layout from "components/Layout"
+import { graphql, Link } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
+import React, { useState } from "react"
 
 type DataProps = {
   allGhostPost: {
@@ -44,7 +44,7 @@ const Blog = ({ data, location }: Props) => {
     new Set(
       posts
         .map(post => post.node.tags.map(tag => tag.name))
-        .reduce((prev, curr) => prev.concat(curr))
+        .reduce((prev, curr) => prev.concat(curr), [])
     )
   )
 
