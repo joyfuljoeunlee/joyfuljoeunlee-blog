@@ -40,6 +40,8 @@ const BlogPostTemplate = ({ data, location }: Props) => {
     Prism.highlightAll()
   }, [])
 
+  console.log(tocLists)
+
   return (
     <Layout
       location={location}
@@ -62,9 +64,13 @@ const BlogPostTemplate = ({ data, location }: Props) => {
               <ul>
                 {tocLists?.map((list, index) => {
                   const tocList = list.innerHTML
+                  const id = list.id
                   return (
-                    <li key={index} className="text-lg">
-                      {tocList}
+                    <li
+                      key={index}
+                      className="text-lg text-pink dark:text-citric"
+                    >
+                      <a href={`#${id}`}>{tocList}</a>
                     </li>
                   )
                 })}
@@ -83,9 +89,10 @@ const BlogPostTemplate = ({ data, location }: Props) => {
           <ul>
             {tocLists?.map((list, index) => {
               const tocList = list.innerHTML
+              const id = list.id
               return (
-                <li key={index} className="text-lg">
-                  {tocList}
+                <li key={index} className="text-lg text-pink dark:text-citric">
+                  <a href={`#${id}`}>{tocList}</a>
                 </li>
               )
             })}

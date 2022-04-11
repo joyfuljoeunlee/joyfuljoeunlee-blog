@@ -16,6 +16,9 @@
   div {
     @apply text-black dark:text-white;
   }
+  html {
+    @apply scroll-smooth;
+  }
   body {
     @apply dark:bg-black;
   }
