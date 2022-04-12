@@ -20,7 +20,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply dark:bg-black;
+    @apply dark:bg-black selection:bg-sunflower selection:dark:bg-blue;
   }
   input[type="checkbox"] {
     @apply hidden;
