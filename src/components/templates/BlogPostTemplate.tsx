@@ -1,4 +1,5 @@
 import Layout from "components/Layout"
+import PostComment from "components/PostComment"
 import ScrollProgressBar from "components/ScrollProgressBar"
 import TocLists from "components/TocLists"
 import { graphql } from "gatsby"
@@ -24,7 +25,6 @@ interface Props {
 const BlogPostTemplate = ({ data, location }: Props) => {
   const [tocLists, setTocLists] = useState<HTMLHeadingElement[] | null>(null)
   const post = data.ghostPost
-
   const { defaultTitle } = useSiteMetadata()
 
   useEffect(() => {
@@ -64,6 +64,7 @@ const BlogPostTemplate = ({ data, location }: Props) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
           </article>
+          <PostComment />
         </div>
         <div className="hidden laptop:block laptop:sticky laptop:top-28 laptop:self-start laptop:min-w-fit">
           <TocLists tocLists={tocLists} />
