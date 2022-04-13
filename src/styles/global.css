@@ -29,7 +29,7 @@
 
 @layer components {
   .header-container {
-    @apply fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center w-full max-w-4xl h-28 m-auto px-4 laptop:px-14 tablet:px-6 bg-white dark:bg-black z-20;
+    @apply fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center w-full max-w-4xl h-28 m-auto px-4 laptop:px-14 tablet:px-6 bg-white/75 dark:bg-black/75 z-20;
   }
   .main-container {
     @apply max-w-4xl m-auto px-4 laptop:px-14 tablet:px-6 my-28;
