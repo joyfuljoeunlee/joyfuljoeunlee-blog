@@ -12,7 +12,7 @@ jobs:
           node-version: 16.x
       - name: npm ci
         env:
-        LHCI_GITHUB_APP_TOKEN: 3TJhhmnxnKT:24920007:Yfhm5p4t6wXqK
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
           npm ci
       - name: run build
