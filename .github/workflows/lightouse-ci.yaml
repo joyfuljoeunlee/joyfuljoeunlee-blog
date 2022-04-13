@@ -1,0 +1,23 @@
+name: Build project and run Lighthouse CI
+on: [push]
+jobs:
+  lhci:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: npm ci
+        env:
+        LHCI_GITHUB_APP_TOKEN: 3TJhhmnxnKT:24920007:Yfhm5p4t6wXqK
+        run: |
+          npm ci
+      - name: run build
+        run: npm run build-nextjs
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.3.x
+          lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
