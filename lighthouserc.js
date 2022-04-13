@@ -1,13 +1,13 @@
 module.exports = {
   ci: {
     collect: {
-      url: ["http://localhost:8000/blog"],
+      url: ["http://localhost:9000/blog"],
       collect: {
-        numberOfRuns: 5,
+        numberOfRuns: 3,
       },
     },
     upload: {
-      startServerCommand: "npm run start",
+      startServerCommand: "yarn clean && yarn build && yarn serve",
       target: "temporary-public-storage",
     },
     assert: {
