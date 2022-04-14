@@ -62,6 +62,9 @@
       > a {
         @apply break-words;
       }
+      > code {
+        @apply p-[0.2rem] bg-muted-black/25 rounded-md;
+      }
     }
     ol {
       @apply list-decimal;
@@ -87,6 +90,7 @@
     pre {
       @apply overflow-x-auto;
     }
+
     a {
       @apply underline decoration-muted-black dark:decoration-citric hover:decoration-2;
     }
