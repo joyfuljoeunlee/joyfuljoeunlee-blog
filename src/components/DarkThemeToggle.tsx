@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { useLayoutEffect, useState } from "react"
 
 const DarkThemeToggle = () => {
   const [isDarkTheme, setIsDarkTheme] = useState<boolean | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsDarkTheme(
       localStorage.theme === "dark" ||
         (!("theme" in localStorage) &&
