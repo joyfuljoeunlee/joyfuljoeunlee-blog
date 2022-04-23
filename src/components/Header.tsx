@@ -22,10 +22,7 @@ const Header: React.FC<Props> = ({ title, isInvisible }: Props) => {
 
   useEffect(() => {
     if (isClicked) {
-      document.body.setAttribute(
-        "style",
-        "touch-action: none; overflow: hidden;"
-      )
+      document.body.setAttribute("style", "touch-action: none; overflow:")
     } else {
       document.body.removeAttribute("style")
     }
@@ -36,7 +33,11 @@ const Header: React.FC<Props> = ({ title, isInvisible }: Props) => {
   }
 
   return (
-    <header className={`header-container transition-transform duration-500`}>
+    <header
+      className={`header-container transition-transform duration-500 ${
+        isInvisible ? "-translate-y-28" : "translate-y-0"
+      }`}
+    >
       <h1 className="z-20">
         <Link to="/">{title}</Link>
       </h1>
