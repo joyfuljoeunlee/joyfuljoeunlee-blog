@@ -27,9 +27,9 @@ const Layout: React.FC<Props> = ({
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY
-      if (currentScrollPos > lastScrollPos) {
+      if (currentScrollPos > 112 && currentScrollPos > lastScrollPos) {
         setIsInvisible(true)
-      } else {
+      } else if (currentScrollPos < 112 || currentScrollPos < lastScrollPos) {
         setIsInvisible(false)
       }
       lastScrollPos = currentScrollPos

@@ -1,8 +1,8 @@
+import DarkThemeToggle from "components/DarkThemeToggle"
 import { AnimatePresence, motion } from "framer-motion"
 import { Link } from "gatsby"
-import React, { useEffect, useState } from "react"
 import useWindowSize from "hooks/useWindowSize"
-import DarkThemeToggle from "components/DarkThemeToggle"
+import React, { useEffect, useState } from "react"
 
 interface Props {
   title: string | undefined
@@ -22,7 +22,7 @@ const Header: React.FC<Props> = ({ title, isInvisible }: Props) => {
 
   useEffect(() => {
     if (isClicked) {
-      document.body.setAttribute("style", "overflow-y: hidden")
+      document.body.setAttribute("style", "touch-action: none; overflow:")
     } else {
       document.body.removeAttribute("style")
     }
