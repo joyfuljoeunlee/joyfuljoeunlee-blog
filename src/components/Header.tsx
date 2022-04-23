@@ -1,8 +1,8 @@
+import DarkThemeToggle from "components/DarkThemeToggle"
 import { AnimatePresence, motion } from "framer-motion"
 import { Link } from "gatsby"
-import React, { useEffect, useState } from "react"
 import useWindowSize from "hooks/useWindowSize"
-import DarkThemeToggle from "components/DarkThemeToggle"
+import React, { useEffect, useState } from "react"
 
 interface Props {
   title: string | undefined
@@ -22,7 +22,10 @@ const Header: React.FC<Props> = ({ title, isInvisible }: Props) => {
 
   useEffect(() => {
     if (isClicked) {
-      document.body.setAttribute("style", "overflow-y: hidden")
+      document.body.setAttribute(
+        "style",
+        "touch-action: none; overflow: hidden;"
+      )
     } else {
       document.body.removeAttribute("style")
     }
@@ -33,11 +36,7 @@ const Header: React.FC<Props> = ({ title, isInvisible }: Props) => {
   }
 
   return (
-    <header
-      className={`header-container transition-transform duration-500 ${
-        isInvisible ? "-translate-y-28" : "translate-y-0"
-      }`}
-    >
+    <header className={`header-container transition-transform duration-500`}>
       <h1 className="z-20">
         <Link to="/">{title}</Link>
       </h1>
