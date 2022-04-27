@@ -22,7 +22,10 @@ const Header = ({ title, isInvisible }: Props) => {
 
   useEffect(() => {
     if (isClicked) {
-      document.body.setAttribute("style", "touch-action: none; overflow:")
+      document.body.setAttribute(
+        "style",
+        "touch-action: none; overflow-y: hidden"
+      )
     } else {
       document.body.removeAttribute("style")
     }
