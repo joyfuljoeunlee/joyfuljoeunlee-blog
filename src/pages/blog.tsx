@@ -3,26 +3,8 @@ import { graphql, Link } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
 import React, { useState } from "react"
 
-type DataProps = {
-  allGhostPost: {
-    edges: {
-      node: {
-        id: string
-        title: string
-        slug: string
-        excerpt: string
-        published_at_pretty: string
-        tags: {
-          id: string
-          name: string
-        }[]
-      }
-    }[]
-  }
-}
-
 interface Props {
-  data: DataProps
+  data: AllGhostPost
   location: Location
 }
 

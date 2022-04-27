@@ -7,18 +7,8 @@ import useSiteMetadata from "hooks/useSiteMetadata"
 import Prism from "prismjs"
 import React, { useEffect, useState } from "react"
 
-type DataProps = {
-  ghostPost: {
-    id: string
-    title: string
-    excerpt: string
-    published_at_pretty: string
-    html: any
-  }
-}
-
 interface Props {
-  data: DataProps
+  data: GhostPost
   location: Location
 }
 
