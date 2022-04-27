@@ -5,6 +5,7 @@ import React, { useState } from "react"
 
 interface Props {
   data: AllGhostPost
+  location: Location
 }
 
 interface FilteredTags {
@@ -12,7 +13,7 @@ interface FilteredTags {
   unselectedTags: string[]
 }
 
-const Blog = ({ data }: Props) => {
+const Blog = ({ data, location }: Props) => {
   const { defaultTitle } = useSiteMetadata()
 
   const currentPage = ["About", "Blog"].find(element =>

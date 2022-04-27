@@ -3,12 +3,12 @@ import UpwardsContainer from "components/motions/UpwardsContainer"
 import useSiteMetadata from "hooks/useSiteMetadata"
 import React from "react"
 
-interface Props {
+interface SectionProps {
   heading: string
   children: React.ReactNode
 }
 
-const AboutSection = ({ heading, children }: Props) => {
+const Section = ({ heading, children }: SectionProps) => {
   return (
     <UpwardsContainer className="about-section pt-16">
       {heading && (
@@ -21,7 +21,11 @@ const AboutSection = ({ heading, children }: Props) => {
   )
 }
 
-const About = () => {
+interface AboutProps {
+  location: Location
+}
+
+const About = ({ location }: AboutProps) => {
   const currentPage = ["About", "Blog"].find(element =>
     location.pathname.includes(element.toLowerCase(), 1)
   )
@@ -46,7 +50,7 @@ const About = () => {
         </h2>
       </UpwardsContainer>
       <div className="grid grid-cols-1 gap-y-16 tablet:flex-row">
-        <AboutSection heading="CONTACT">
+        <Section heading="CONTACT">
           <div className="basis-1/4">
             <a
               href="https://github.com/joyfuljoeunlee"
@@ -74,9 +78,9 @@ const About = () => {
               Email
             </a>
           </div>
-        </AboutSection>
+        </Section>
 
-        <AboutSection heading="WORK EXPERIENCE">
+        <Section heading="WORK EXPERIENCE">
           <div className="basis-1/2">
             <h3 className="text-2xl font-bold">레이지 소사이어티</h3>
             <div className="mt-2">
@@ -128,9 +132,9 @@ const About = () => {
               </p>
             </div>
           </div>
-        </AboutSection>
+        </Section>
 
-        <AboutSection heading="PROJECTS">
+        <Section heading="PROJECTS">
           <div className="basis-1/2">
             <h3 className="text-2xl font-bold">개인 블로그</h3>
             <div className="mt-2">
@@ -224,9 +228,9 @@ const About = () => {
               </ul>
             </div>
           </div>
-        </AboutSection>
+        </Section>
 
-        <AboutSection heading="SKILLS">
+        <Section heading="SKILLS">
           <div className="basis-1/2">
             <h3 className="text-2xl font-bold">Frontend</h3>
           </div>
@@ -292,9 +296,9 @@ const About = () => {
               </li>
             </ul>
           </div>
-        </AboutSection>
+        </Section>
 
-        <AboutSection heading="EDUCATION">
+        <Section heading="EDUCATION">
           <div className="basis-1/2">
             <h3 className="text-2xl font-bold">위코드</h3>
             <div className="mt-2">
@@ -321,9 +325,9 @@ const About = () => {
               중심으로 학과 수업을 이수했습니다.
             </p>
           </div>
-        </AboutSection>
+        </Section>
 
-        <AboutSection heading="Awards">
+        <Section heading="Awards">
           <div className="basis-1/2">
             <h3 className="text-2xl font-bold">
               2017 월드프렌즈 ICT 봉사단 성과 보고대회 우수 활동팀, 최우수상
@@ -343,7 +347,7 @@ const About = () => {
               기획, 개발, 배포할 수 있었습니다.
             </p>
           </div>
-        </AboutSection>
+        </Section>
       </div>
     </Layout>
   )
