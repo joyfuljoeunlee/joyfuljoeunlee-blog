@@ -9,10 +9,9 @@ import React, { useEffect, useState } from "react"
 
 interface Props {
   data: GhostPost
-  location: Location
 }
 
-const BlogPostTemplate = ({ data, location }: Props) => {
+const BlogPostTemplate = ({ data }: Props) => {
   const [tocLists, setTocLists] = useState<HTMLHeadingElement[] | null>(null)
   const post = data.ghostPost
   const { defaultTitle } = useSiteMetadata()
@@ -33,7 +32,6 @@ const BlogPostTemplate = ({ data, location }: Props) => {
 
   return (
     <Layout
-      location={location}
       title={defaultTitle}
       seoTitle={post.title}
       seoDescription={post.excerpt}

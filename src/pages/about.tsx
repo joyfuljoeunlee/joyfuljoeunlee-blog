@@ -1,18 +1,14 @@
-import React from "react"
 import Layout from "components/Layout"
 import UpwardsContainer from "components/motions/UpwardsContainer"
 import useSiteMetadata from "hooks/useSiteMetadata"
+import React from "react"
 
-interface AboutSectionProps {
+interface Props {
   heading: string
   children: React.ReactNode
 }
 
-interface AboutProps {
-  location: Location
-}
-
-const AboutSection = ({ heading, children }: AboutSectionProps) => {
+const AboutSection = ({ heading, children }: Props) => {
   return (
     <UpwardsContainer className="about-section pt-16">
       {heading && (
@@ -25,7 +21,7 @@ const AboutSection = ({ heading, children }: AboutSectionProps) => {
   )
 }
 
-const About = ({ location }: AboutProps) => {
+const About = () => {
   const currentPage = ["About", "Blog"].find(element =>
     location.pathname.includes(element.toLowerCase(), 1)
   )
@@ -33,7 +29,7 @@ const About = ({ location }: AboutProps) => {
   const { defaultTitle } = useSiteMetadata()
 
   return (
-    <Layout location={location} title={defaultTitle} seoTitle={currentPage}>
+    <Layout title={defaultTitle} seoTitle={currentPage}>
       <div className="grid justify-center items-center gap-3 m-auto pt-12 pb-24">
         <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center dark:text-citric">
           {currentPage}

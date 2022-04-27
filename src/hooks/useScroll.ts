@@ -7,7 +7,7 @@ interface Scroll {
 
 const useScroll = () => {
   const [scroll, setScroll] = useState<Scroll>({
-    x: 0, // x와 y의 초기값을 0으로 지정
+    x: 0,
     y: 0,
   })
 

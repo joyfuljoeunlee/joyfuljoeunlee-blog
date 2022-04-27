@@ -9,7 +9,7 @@ interface Props {
   isInvisible: boolean
 }
 
-const Header: React.FC<Props> = ({ title, isInvisible }: Props) => {
+const Header = ({ title, isInvisible }: Props) => {
   const [isClicked, setIsClicked] = useState<boolean>(false)
 
   const isMobileSize = useWindowSize().width <= 834

@@ -5,22 +5,13 @@ import useScroll from "hooks/useScroll"
 import React, { useEffect, useState } from "react"
 
 interface Props {
-  location: Location
   title?: string | undefined
   seoTitle?: string | undefined
   seoDescription?: string
   children?: React.ReactNode
 }
 
-const Layout: React.FC<Props> = ({
-  location,
-  title,
-  seoTitle,
-  seoDescription,
-  children,
-}: Props) => {
-  // const rootPath = `${__PATH_PREFIX__}/`
-  // const isRootPath = location.pathname === rootPath
+const Layout = ({ title, seoTitle, seoDescription, children }: Props) => {
   const [isInvisible, setIsInvisible] = useState<boolean>(false)
   let { y: lastScrollPos } = useScroll()
 
@@ -37,16 +28,6 @@ const Layout: React.FC<Props> = ({
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      window.scrollTo(0, 0)
-    }
-    window.addEventListener("beforeunload", handleBeforeUnload)
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload)
     }
   }, [])
 

@@ -3,18 +3,18 @@ import React, { useEffect, useState } from "react"
 const ScrollProgressBar = () => {
   const [scrolled, setScrolled] = useState<number>(0)
 
-  const trackVerticalScroll = () => {
-    let winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop
-
-    let height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight
-
-    setScrolled((winScroll / height) * 100)
-  }
-
   useEffect(() => {
+    const trackVerticalScroll = () => {
+      let winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop
+
+      let height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight
+
+      setScrolled((winScroll / height) * 100)
+    }
+
     window.addEventListener("scroll", trackVerticalScroll)
     return () => {
       window.removeEventListener("scroll", trackVerticalScroll)

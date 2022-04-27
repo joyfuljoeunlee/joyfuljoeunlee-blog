@@ -16,9 +16,9 @@
   div {
     @apply text-black dark:text-white;
   }
-  html {
+  /* html {
     @apply scroll-smooth;
-  }
+  } */
   body {
     @apply dark:bg-black selection:bg-sunflower selection:dark:bg-blue;
   }

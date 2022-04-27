@@ -5,7 +5,6 @@ import React, { useState } from "react"
 
 interface Props {
   data: AllGhostPost
-  location: Location
 }
 
 interface FilteredTags {
@@ -13,7 +12,7 @@ interface FilteredTags {
   unselectedTags: string[]
 }
 
-const Blog = ({ data, location }: Props) => {
+const Blog = ({ data }: Props) => {
   const { defaultTitle } = useSiteMetadata()
 
   const currentPage = ["About", "Blog"].find(element =>
@@ -72,7 +71,7 @@ const Blog = ({ data, location }: Props) => {
   )
 
   return (
-    <Layout location={location} title={defaultTitle} seoTitle={currentPage}>
+    <Layout title={defaultTitle} seoTitle={currentPage}>
       <div className="grid justify-center items-center gap-3 m-auto pt-12 pb-24">
         <h1 className="m-0 text-7xl tablet:text-8xl laptop:text-9xl font-bold text-center dark:text-citric">
           {currentPage}
@@ -116,8 +115,8 @@ const Blog = ({ data, location }: Props) => {
                 key={post.node.slug}
                 className="laptop:col-span-3 tablet:col-span-2 group"
               >
-                <Link to={post.node.slug} itemProp="url">
-                  <article itemScope itemType="http://schema.org/Article">
+                <Link to={post.node.slug}>
+                  <article>
                     <ol className="flex flex-wrap">
                       {post.node.tags.map(tag => {
                         return (
