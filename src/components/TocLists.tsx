@@ -22,7 +22,7 @@ const TocLists = ({ tocLists }: Props) => {
           return (
             <li
               key={index}
-              className="text-lg underline underline-offset-2"
+              className="p-1 text-sm underline underline-offset-2"
               onClick={() => {
                 goToContents(id)
               }}
