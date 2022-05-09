@@ -54,9 +54,9 @@ const BlogPostTemplate = ({ data }: Props) => {
           </article>
           <PostComment />
         </div>
-        <div className="hidden laptop:block laptop:sticky laptop:top-28 laptop:self-start laptop:min-w-fit">
+        <aside className="hidden laptop:block laptop:sticky laptop:top-28 laptop:self-start laptop:min-w-fit">
           <TocLists tocLists={tocLists} />
-        </div>
+        </aside>
       </div>
     </Layout>
   )
