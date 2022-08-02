@@ -47,9 +47,9 @@ const Header = ({ title, isInvisible }: Props) => {
       <div className="grid grid-flow-col items-center gap-x-4">
         <DarkThemeToggle />
         <ul className="hidden tablet:grid tablet:grid-flow-col tablet:gap-x-4">
-          <li className="hover:text-muted-black">
+          {/* <li className="hover:text-muted-black">
             <Link to="/about">About</Link>
-          </li>
+          </li> */}
           <li className="hover:text-muted-black">
             <Link to="/blog">Blog</Link>
           </li>

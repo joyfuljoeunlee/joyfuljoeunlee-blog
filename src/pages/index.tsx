@@ -4,7 +4,7 @@ import React, { useEffect } from "react"
 
 const Index = () => {
   useEffect(() => {
-    navigate("/about", { replace: true })
+    navigate("/blog", { replace: true })
   }, [])
 
   return <Layout></Layout>

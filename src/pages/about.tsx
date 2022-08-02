@@ -1,7 +1,8 @@
 import Layout from "components/Layout"
 import UpwardsContainer from "components/motions/UpwardsContainer"
+import { navigate } from "gatsby"
 import useSiteMetadata from "hooks/useSiteMetadata"
-import React from "react"
+import React, { useEffect } from "react"
 
 interface SectionProps {
   heading: string
@@ -32,6 +33,9 @@ const About = ({ location }: AboutProps) => {
 
   const { defaultTitle } = useSiteMetadata()
 
+  useEffect(() => {
+    navigate("/blog", { replace: true })
+  }, [])
   return (
     <Layout title={defaultTitle} seoTitle={currentPage}>
       <div className="grid justify-center items-center gap-3 m-auto pt-12 pb-24">
